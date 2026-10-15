@@ -1,24 +1,42 @@
 """
-dashboard/pages/ticket_confirmation.py
+dashboard/pages/1_🎫_Ticket_Confirmation.py
 Passenger Portal: Ticket Confirmation Probability Checker.
 """
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 import streamlit as st
 
 from app.base import get_service
+import app.modules.ticket_predictor  # Ensure ticket predictor service registers
 from app.config import VALID_CLASSES, VALID_STATUSES, VALID_TRAIN_TYPES
 from app.governance.audit import log_event
-from dashboard.components.theme import render_header
+from app.governance.registry import get_active
+from dashboard.components.theme import render_header, render_sidebar_system_info
+
+st.set_page_config(
+    page_title="Ticket Confirmation - RailGov",
+    page_icon="🎫",
+    layout="wide",
+)
 
 
-def render_ticket_confirmation_page(bundle: Optional[Any], active_ver: str) -> None:
+def main():
     """Render the passenger-facing ticket confirmation predictor UI."""
+    service = get_service("ticket_predictor")
+    active_info = get_active("ticket_predictor")
+    active_ver = active_info["version"] if active_info else "v1"
+
+    try:
+        bundle, _ = service.load_model(active_ver)
+    except Exception:
+        bundle = None
+
     render_header(
         title="Indian Railways Ticket Confirmation Predictor",
         subtitle="Check whether your Waitlisted (WL) or RAC ticket will get confirmed before chart preparation.",
         icon="🎫",
     )
+    render_sidebar_system_info(active_ver)
 
     col_form, _, col_result = st.columns([1.2, 0.1, 1.2])
 
@@ -105,7 +123,6 @@ def render_ticket_confirmation_page(bundle: Optional[Any], active_ver: str) -> N
                 "train_type": train_type,
             }
 
-            service = get_service("ticket_predictor")
             is_valid, issues = service.validate_record(record)
             if not is_valid:
                 st.error(f"Please check your input: {', '.join(issues)}")
@@ -148,3 +165,6 @@ def render_ticket_confirmation_page(bundle: Optional[Any], active_ver: str) -> N
                     st.markdown(f"- **{factor['explanation']}**")
         else:
             st.info("👈 Enter your ticket details on the left and click **'Check Confirmation Chance'**.")
+
+
+main()

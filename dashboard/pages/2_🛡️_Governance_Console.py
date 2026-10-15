@@ -1,5 +1,5 @@
 """
-dashboard/pages/governance_console.py
+dashboard/pages/2_🛡️_Governance_Console.py
 AI Governance & Operations Console for governed RailGov models.
 """
 
@@ -16,10 +16,16 @@ from app.governance.drift import detect_drift
 from app.governance.registry import get_active, list_versions, load_registry, rollback
 from app.supervisor import run_supervisor_cycle
 from dashboard.components.charts import create_psi_bar_chart
-from dashboard.components.theme import render_header, status_badge
+from dashboard.components.theme import render_header, render_sidebar_system_info, status_badge
+
+st.set_page_config(
+    page_title="AI Governance Console - RailGov",
+    page_icon="🛡️",
+    layout="wide",
+)
 
 
-def render_governance_console_page() -> None:
+def main():
     """Render the engineering and academic AI Governance Console UI."""
     render_header(
         title="Autonomous AI Governance & Operations Console",
@@ -27,7 +33,6 @@ def render_governance_console_page() -> None:
         icon="🛡️",
     )
 
-    # 1. Model Selector
     available_models = list_services()
     if not available_models:
         st.error("No model services are currently registered.")
@@ -43,10 +48,11 @@ def render_governance_console_page() -> None:
 
     active_info = get_active(selected_model)
     active_ver = active_info["version"] if active_info else "Uninitialized"
+    render_sidebar_system_info(active_ver)
+
     model_events = get_events(model_name=selected_model, limit=500)
     versions_list = list_versions(selected_model)
 
-    # Top Metric Cards with real dynamic values
     m1, m2, m3, m4 = st.columns(4)
     with m1:
         st.metric("Active Version", active_ver)
@@ -239,3 +245,6 @@ def render_governance_console_page() -> None:
                     st.write(f"**Remediation Action:** {det.get('resolution')}")
                     if det.get("drift_summary"):
                         st.json(det["drift_summary"])
+
+
+main()
