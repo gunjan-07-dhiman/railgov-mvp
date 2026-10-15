@@ -7,6 +7,12 @@ All project constants, thresholds, paths, and guardrail limits are defined here.
 from pathlib import Path
 from typing import List
 
+# Branding and Application Identity
+APP_NAME: str = "YatraGov AI"
+HOME_TAGLINE: str = "PREDICTIVE TRAVEL & AI LIFECYCLE GOVERNANCE"
+SIDEBAR_TAGLINE: str = "TRAVEL AI & GOVERNANCE"
+FOOTER_DISCLAIMER: str = "Academic prototype. Uses synthetic demo data. Not affiliated with Indian Railways or IRCTC."
+
 # Paths
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 DATA_DIR: Path = BASE_DIR / "data"
@@ -78,3 +84,38 @@ CONFIDENCE_MED_MARGIN: float = 0.12
 # SHAP log-odds explanation strength tiers
 SHAP_STRONG_THRESHOLD: float = 0.70
 SHAP_MODERATE_THRESHOLD: float = 0.25
+
+# Delay and Congestion Module Constants
+DELAY_FEATURE_COLUMNS: List[str] = [
+    "distance_km",
+    "scheduled_hour",
+    "day_of_week",
+    "rainfall_mm",
+    "prev_station_delay_min",
+    "route_congestion_index",
+    "train_type",
+]
+DELAY_CATEGORICAL_FEATURES: List[str] = ["train_type"]
+DELAY_NUMERIC_FEATURES: List[str] = [
+    "distance_km",
+    "scheduled_hour",
+    "day_of_week",
+    "rainfall_mm",
+    "prev_station_delay_min",
+    "route_congestion_index",
+]
+DELAY_TARGET_COLUMN: str = "delay_minutes"
+CONGESTION_TARGET_COLUMN: str = "congestion_level"
+VALID_CONGESTION_LEVELS: List[str] = ["Low", "Moderate", "High"]
+
+MIN_DISTANCE_KM: float = 10.0
+MAX_DISTANCE_KM: float = 3000.0
+MIN_SCHEDULED_HOUR: int = 0
+MAX_SCHEDULED_HOUR: int = 23
+MIN_RAINFALL_MM: float = 0.0
+MAX_RAINFALL_MM: float = 200.0
+MIN_PREV_DELAY_MIN: float = 0.0
+MAX_PREV_DELAY_MIN: float = 300.0
+
+MAX_DELAY_MAE_DEGRADATION: float = 5.0  # Flag if holdout MAE increases by > 5 minutes
+PROACTIVE_ALERT_DELAY_THRESHOLD: int = 15  # Minutes of delay to trigger passenger warning

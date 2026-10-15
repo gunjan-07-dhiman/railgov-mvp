@@ -43,6 +43,9 @@ class MockDelayService(ModelService):
             "is_delayed": rng.choice([0, 1], 200),
         })
 
+    def load_drifted_df(self) -> pd.DataFrame:
+        return self.load_baseline_df()
+
     def train(self, df: pd.DataFrame, version: str) -> Dict[str, Any]:
         return {
             "version": version,

@@ -92,6 +92,13 @@ class TicketPredictorService(ModelService):
             raise FileNotFoundError(f"Baseline file missing: {baseline_path}")
         return pd.read_csv(baseline_path)
 
+    def load_drifted_df(self) -> pd.DataFrame:
+        """Load drifted production batch from data/drifted.csv."""
+        drifted_path = DATA_DIR / "drifted.csv"
+        if not drifted_path.exists():
+            raise FileNotFoundError(f"Drifted file missing: {drifted_path}")
+        return pd.read_csv(drifted_path)
+
     def _build_preprocessor(self) -> ColumnTransformer:
         """Build column transformer for categoricals (One-Hot) and numerics (passthrough)."""
         return ColumnTransformer(

@@ -1,21 +1,21 @@
 """
 tests/test_dashboard.py
 Tests for Streamlit governance dashboard helper functions:
-- Plotly PSI bar chart rendering and severity color mapping.
-- Model bundle loader and registry integration.
-- Clean module import without syntax or runtime initialization errors.
+- Plotly PSI bar chart rendering and severity color mapping (from dashboard.components.charts).
+- Model bundle loader and registry integration (from dashboard.components.ui).
+- Clean module import of dashboard.app without syntax or runtime initialization errors.
 """
 
 import plotly.graph_objects as go
 import pytest
 
-from dashboard.app import create_psi_bar_chart, load_active_bundle
+import dashboard.app as dash_app
+from dashboard.components.charts import create_psi_bar_chart
+from dashboard.components.ui import load_active_bundle
 
 
 def test_dashboard_import_cleanly():
-    import dashboard.app as dash_app
     assert hasattr(dash_app, "main")
-    assert hasattr(dash_app, "create_psi_bar_chart")
 
 
 def test_create_psi_bar_chart_valid():

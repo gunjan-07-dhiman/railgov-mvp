@@ -54,6 +54,11 @@ class ModelService(ABC):
         """Load reference baseline dataset for drift comparison."""
         pass
 
+    @abstractmethod
+    def load_drifted_df(self) -> pd.DataFrame:
+        """Load production/drifted batch dataset for governance testing."""
+        pass
+
 
 _SERVICES: Dict[str, ModelService] = {}
 

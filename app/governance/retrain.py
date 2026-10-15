@@ -7,6 +7,7 @@ Enforces holdout data isolation across governed model services.
 
 from pathlib import Path
 from typing import Any, Dict, Optional
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
@@ -65,14 +66,17 @@ def retrain_if_needed(
 
     # 1. Split recent data: 70% train, 30% unseen holdout
     stratify_col = None
-    if target_col in current_df.columns:
+    if target_col in current_df.columns and not pd.api.types.is_float_dtype(current_df[target_col]):
         counts = current_df[target_col].value_counts()
         if len(counts) >= 2 and counts.min() >= 2:
-            stratify_col = current_df[target_col]
+            stratify_col = current_df[target_col].values
 
-    current_train, current_holdout = train_test_split(
-        current_df, test_size=0.30, random_state=42, stratify=stratify_col
+    n = len(current_df)
+    train_idx, holdout_idx = train_test_split(
+        np.arange(n), test_size=0.30, random_state=42, stratify=stratify_col
     )
+    current_train = current_df.iloc[train_idx]
+    current_holdout = current_df.iloc[holdout_idx]
 
     # 2. Combine baseline data with recent training slice
     combined_train = pd.concat([baseline_df, current_train], ignore_index=True)
