@@ -158,6 +158,37 @@ MAX_FARE_MAE_DEGRADATION: float = 150.0  # Flag if holdout MAE increases by > 15
 FARE_BASELINE_PATH: Path = DATA_DIR / "fare_baseline.csv"
 FARE_DRIFTED_PATH: Path = DATA_DIR / "fare_drifted.csv"
 
+# Fraud Shield & Bot Detection Module Constants
+FRAUD_FEATURE_COLUMNS: List[str] = [
+    "bookings_last_hour",
+    "accounts_per_device",
+    "accounts_per_ip",
+    "form_fill_seconds",
+    "failed_payments",
+    "account_age_days",
+    "is_tatkal_window",
+    "avg_gap_between_clicks_ms",
+]
+FRAUD_CATEGORICAL_FEATURES: List[str] = ["is_tatkal_window"]
+FRAUD_NUMERIC_FEATURES: List[str] = [
+    "bookings_last_hour",
+    "accounts_per_device",
+    "accounts_per_ip",
+    "form_fill_seconds",
+    "failed_payments",
+    "account_age_days",
+    "avg_gap_between_clicks_ms",
+]
+FRAUD_TARGET_COLUMN: str = "is_fraud"
+
+# Fraud Risk Thresholds (Score 0-100)
+FRAUD_RISK_LOW_THRESHOLD: float = 30.0    # Score < 30 -> Low Risk
+FRAUD_RISK_HIGH_THRESHOLD: float = 70.0   # Score >= 70 -> High Risk (30-69 -> Medium Risk)
+MAX_FRAUD_RECALL_DROP: float = 0.08       # Flag degradation if holdout recall drops by > 0.08 (8%)
+
+FRAUD_BASELINE_PATH: Path = DATA_DIR / "fraud_baseline.csv"
+FRAUD_DRIFTED_PATH: Path = DATA_DIR / "fraud_drifted.csv"
+
 # Centralized Passenger Module Catalog (Single Source of Truth for Nav & Cards)
 MODULE_CATALOG: List[dict] = [
     {
@@ -188,9 +219,9 @@ MODULE_CATALOG: List[dict] = [
         "id": "fraud",
         "title": "Booking Fraud Shield",
         "short_title": "Fraud Shield",
-        "page": None,
+        "page": "pages/fraud.py",
         "desc": "High-frequency automated bot detection and risk classification.",
-        "built": False,
+        "built": True,
     },
     {
         "id": "support",

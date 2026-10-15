@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Optional
 import pandas as pd
 
 from app.base import ModelService, get_service
-from app.config import AUC_DEGRADATION_THRESHOLD
+from app.config import AUC_DEGRADATION_THRESHOLD, MAX_FRAUD_RECALL_DROP
 from app.governance.audit import log_event
 from app.governance.drift import detect_drift
 from app.governance.registry import get_active, register
@@ -123,16 +123,22 @@ def run_supervisor_cycle(
         )
         is_degraded = perf_report.get("degradation_detected", False)
         auc_drop = perf_report.get("auc_drop", 0.0)
+        is_fraud = service.model_name == "fraud_detector"
+        metric_name = "Recall" if is_fraud else "AUC"
+        perf_drop = perf_report.get("recall_drop", auc_drop) if is_fraud else auc_drop
+        perf_thresh = MAX_FRAUD_RECALL_DROP if is_fraud else AUC_DEGRADATION_THRESHOLD
+        current_perf_val = perf_report["metrics"].get("recall" if is_fraud else "auc", perf_report["metrics"].get("auc", 0.0))
+        baseline_perf_val = perf_report.get("baseline_recall", baseline_auc) if is_fraud else baseline_auc
 
         if is_degraded:
             log_event(
                 event_type="PERFORMANCE_ALERT",
                 actor="supervisor_agent",
                 details={
-                    "baseline_auc": baseline_auc,
-                    "current_auc": perf_report["metrics"]["auc"],
-                    "auc_drop": auc_drop,
-                    "threshold": AUC_DEGRADATION_THRESHOLD,
+                    f"baseline_{metric_name.lower()}": baseline_perf_val,
+                    f"current_{metric_name.lower()}": current_perf_val,
+                    f"{metric_name.lower()}_drop": perf_drop,
+                    "threshold": perf_thresh,
                 },
                 model_version=active_version,
                 model_name=model_name,
@@ -154,8 +160,8 @@ def run_supervisor_cycle(
         action = "RETRAIN"
         root_cause = (
             f"Severe covariate shift in {top_features_str}. "
-            f"Active model '{active_version}' AUC dropped from {baseline_auc:.3f} to "
-            f"{perf_report['metrics']['auc']:.3f} (drop of {auc_drop:.3f} > {AUC_DEGRADATION_THRESHOLD})."
+            f"Active model '{active_version}' {metric_name} dropped from {baseline_perf_val:.3f} to "
+            f"{current_perf_val:.3f} (drop of {perf_drop:.3f} > {perf_thresh})."
         )
     elif is_critical_drift:
         priority = "P2_CRITICAL_DRIFT"
@@ -164,7 +170,7 @@ def run_supervisor_cycle(
     elif is_degraded:
         priority = "P3_PERFORMANCE_DROP"
         action = "RETRAIN"
-        root_cause = f"Model degradation observed: AUC fell by {auc_drop:.3f} on recent batch."
+        root_cause = f"Model degradation observed: {metric_name} fell by {perf_drop:.3f} on recent batch."
     elif is_warning_drift:
         priority = "P4_DRIFT_WARNING"
         action = "MONITOR"

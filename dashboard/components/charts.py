@@ -118,6 +118,43 @@ def create_confirmation_gauge(prob_pct: float, status_label: str) -> go.Figure:
     return fig
 
 
+def create_fraud_risk_gauge(risk_score: float, level: str) -> go.Figure:
+    """Render a risk gauge (0-100) calibrated in railway signal colors."""
+    if level == "Low":
+        bar_color = SIGNAL_GREEN
+    elif level == "Medium":
+        bar_color = SIGNAL_AMBER
+    else:
+        bar_color = SIGNAL_RED
+
+    fig = go.Figure(
+        go.Indicator(
+            mode="gauge+number",
+            value=round(risk_score, 0),
+            number={"suffix": " / 100", "font": {"family": "Share Tech Mono", "size": 34, "color": NAVY}},
+            gauge={
+                "axis": {"range": [0, 100], "tickwidth": 1, "tickcolor": NAVY, "nticks": 5},
+                "bar": {"color": bar_color, "thickness": 0.35},
+                "bgcolor": "#E2E8F0",
+                "borderwidth": 0,
+                "steps": [
+                    {"range": [0, 30], "color": "rgba(34, 197, 94, 0.12)"},
+                    {"range": [30, 70], "color": "rgba(250, 204, 21, 0.12)"},
+                    {"range": [70, 100], "color": "rgba(239, 68, 68, 0.12)"},
+                ],
+            },
+        )
+    )
+
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        height=180,
+        margin=dict(l=20, r=20, t=20, b=10),
+    )
+    return fig
+
+
 def create_fare_horizon_chart(
     days_series: list,
     fares_series: list,
