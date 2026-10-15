@@ -1,0 +1,81 @@
+[
+  {
+    "test_case": "missing_travel_class",
+    "record": {
+      "booking_id": 999001,
+      "booking_status": "WL",
+      "wl_position": 45,
+      "days_before_journey": 20,
+      "day_of_week": 2,
+      "month": 6,
+      "is_festival_season": 0,
+      "route_popularity": 0.55,
+      "train_type": "Superfast"
+    },
+    "expected_issue": "Missing field: travel_class"
+  },
+  {
+    "test_case": "invalid_travel_class",
+    "record": {
+      "booking_id": 999002,
+      "travel_class": "XX",
+      "booking_status": "WL",
+      "wl_position": 25,
+      "days_before_journey": 15,
+      "day_of_week": 4,
+      "month": 7,
+      "is_festival_season": 0,
+      "route_popularity": 0.4,
+      "train_type": "Express"
+    },
+    "expected_issue": "Invalid travel_class: XX"
+  },
+  {
+    "test_case": "negative_wl_position",
+    "record": {
+      "booking_id": 999003,
+      "travel_class": "3A",
+      "booking_status": "WL",
+      "wl_position": -5,
+      "days_before_journey": 30,
+      "day_of_week": 1,
+      "month": 8,
+      "is_festival_season": 0,
+      "route_popularity": 0.65,
+      "train_type": "Rajdhani"
+    },
+    "expected_issue": "wl_position must be between 1 and 200"
+  },
+  {
+    "test_case": "out_of_range_days_before_journey",
+    "record": {
+      "booking_id": 999004,
+      "travel_class": "SL",
+      "booking_status": "WL",
+      "wl_position": 50,
+      "days_before_journey": 900,
+      "day_of_week": 5,
+      "month": 9,
+      "is_festival_season": 0,
+      "route_popularity": 0.7,
+      "train_type": "Express"
+    },
+    "expected_issue": "days_before_journey must be between 0 and 120"
+  },
+  {
+    "test_case": "invalid_booking_status",
+    "record": {
+      "booking_id": 999005,
+      "travel_class": "2A",
+      "booking_status": "CNF",
+      "wl_position": 10,
+      "days_before_journey": 10,
+      "day_of_week": 0,
+      "month": 5,
+      "is_festival_season": 0,
+      "route_popularity": 0.5,
+      "train_type": "Superfast"
+    },
+    "expected_issue": "Invalid booking_status: CNF (must be WL or RAC)"
+  }
+]
