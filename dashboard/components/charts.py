@@ -12,9 +12,11 @@ from dashboard.components.theme import (
     FONT_HEADINGS,
     FONT_MONO,
     NAVY,
+    SAFFRON,
     SIGNAL_AMBER,
     SIGNAL_GREEN,
     SIGNAL_RED,
+    WARM_PAPER,
 )
 
 
@@ -112,5 +114,80 @@ def create_confirmation_gauge(prob_pct: float, status_label: str) -> go.Figure:
         plot_bgcolor="rgba(0,0,0,0)",
         height=200,
         margin=dict(l=20, r=20, t=20, b=10),
+    )
+    return fig
+
+
+def create_fare_horizon_chart(
+    days_series: list,
+    fares_series: list,
+    current_days: int,
+    best_day: int,
+    best_fare: int,
+    today_fare: int,
+) -> go.Figure:
+    """Render fare trajectory across booking days (navy line, saffron best day marker)."""
+    fig = go.Figure()
+
+    # Trajectory curve
+    fig.add_trace(
+        go.Scatter(
+            x=days_series,
+            y=fares_series,
+            mode="lines",
+            line=dict(color=NAVY, width=2.5),
+            name="Estimated Fare",
+            hovertemplate="Day %{x} ahead: ₹%{y:,}<extra></extra>",
+        )
+    )
+
+    # Current Day Marker
+    fig.add_trace(
+        go.Scatter(
+            x=[current_days],
+            y=[today_fare],
+            mode="markers+text",
+            marker=dict(color=NAVY, size=10, symbol="circle", line=dict(color="#FFFFFF", width=2)),
+            text=[f"Today (₹{today_fare:,})"],
+            textposition="top center",
+            name="Today",
+            hoverinfo="skip",
+        )
+    )
+
+    # Best Booking Day Marker (Saffron)
+    fig.add_trace(
+        go.Scatter(
+            x=[best_day],
+            y=[best_fare],
+            mode="markers+text",
+            marker=dict(color=SAFFRON, size=13, symbol="diamond", line=dict(color=NAVY, width=2)),
+            text=[f"Best Day {best_day} (₹{best_fare:,})"],
+            textposition="bottom center",
+            name="Best Day",
+            hoverinfo="skip",
+        )
+    )
+
+    fig.update_layout(
+        title="Fare Trajectory Across Booking Horizon (Days Ahead)",
+        xaxis=dict(
+            title="Days Before Departure (Horizon: 0–60)",
+            tickmode="linear",
+            dtick=10,
+            gridcolor="rgba(143, 163, 191, 0.2)",
+            autorange="reversed",  # 60 days on left -> 0 days (departure) on right
+        ),
+        yaxis=dict(
+            title="Estimated Fare (INR)",
+            gridcolor="rgba(143, 163, 191, 0.2)",
+            tickprefix="₹",
+        ),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color=NAVY, family="Barlow, sans-serif"),
+        height=320,
+        margin=dict(l=40, r=40, t=50, b=40),
+        showlegend=False,
     )
     return fig

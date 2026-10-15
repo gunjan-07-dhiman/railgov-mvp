@@ -70,6 +70,8 @@ def register_service(service: ModelService) -> None:
 
 def get_service(model_name: str = "ticket_predictor") -> ModelService:
     """Retrieve a registered model service by name."""
+    if not _SERVICES:
+        import app.modules  # noqa: F401
     if model_name not in _SERVICES:
         raise KeyError(f"Model service '{model_name}' is not registered.")
     return _SERVICES[model_name]
@@ -77,4 +79,6 @@ def get_service(model_name: str = "ticket_predictor") -> ModelService:
 
 def list_services() -> List[str]:
     """Return all registered model service names."""
+    if not _SERVICES:
+        import app.modules  # noqa: F401
     return list(_SERVICES.keys())

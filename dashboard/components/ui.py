@@ -11,12 +11,11 @@ import pandas as pd
 import streamlit as st
 
 from app.base import get_service, list_services
-import app.modules.ticket_predictor  # Auto-registers ticket predictor service
-import app.modules.delay             # Auto-registers delay predictor service
 from app.config import (
     APP_NAME,
     FOOTER_DISCLAIMER,
     HOME_TAGLINE,
+    MODULE_CATALOG,
     SIDEBAR_TAGLINE,
 )
 from app.governance.audit import get_events, init_audit_db
@@ -98,41 +97,27 @@ def render_sidebar_route_navigation(active_page_id: str) -> None:
 
     # 2. PASSENGER SERVICES
     st.sidebar.markdown('<div class="rail-sidebar-section">PASSENGER SERVICES</div>', unsafe_allow_html=True)
-    is_ticket = active_page_id == "ticket_confirmation"
-    st.sidebar.page_link(
-        "pages/ticket_confirmation.py",
-        label="●  Ticket Confirmation" if is_ticket else "○  Ticket Confirmation",
-        use_container_width=True,
-    )
-
-    is_delay = active_page_id == "delay"
-    st.sidebar.page_link(
-        "pages/delay.py",
-        label="●  Train Delay & Platform" if is_delay else "○  Train Delay & Platform",
-        use_container_width=True,
-    )
-
-    # Unbuilt roadmap modules with hollow grey station dots and SOON badge
-    unbuilt_modules = [
-        "Fare Prediction",
-        "Fraud Shield",
-        "Support Chatbot",
-        "Train Recommender",
-        "Journey Planner Agent",
-    ]
-    for name in unbuilt_modules:
-        st.sidebar.markdown(
-            f"""
-            <div class="rail-nav-disabled">
-                <div style="display: flex; align-items: center;">
-                    <span class="rail-dot rail-dot-soon"></span>
-                    <span>{name}</span>
+    for mod in MODULE_CATALOG:
+        if mod["built"]:
+            is_active = active_page_id == mod["id"]
+            st.sidebar.page_link(
+                mod["page"],
+                label=f"{'●' if is_active else '○'}  {mod['short_title']}",
+                use_container_width=True,
+            )
+        else:
+            st.sidebar.markdown(
+                f"""
+                <div class="rail-nav-disabled">
+                    <div style="display: flex; align-items: center;">
+                        <span class="rail-dot rail-dot-soon"></span>
+                        <span>{mod['short_title']}</span>
+                    </div>
+                    <span class="rail-badge-soon">SOON</span>
                 </div>
-                <span class="rail-badge-soon">SOON</span>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+                """,
+                unsafe_allow_html=True,
+            )
 
     # 3. AI GOVERNANCE
     st.sidebar.markdown('<div class="rail-sidebar-section">AI GOVERNANCE</div>', unsafe_allow_html=True)

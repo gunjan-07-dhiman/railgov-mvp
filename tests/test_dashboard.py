@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 import pytest
 
 import dashboard.app as dash_app
-from dashboard.components.charts import create_psi_bar_chart
+from dashboard.components.charts import create_fare_horizon_chart, create_psi_bar_chart
 from dashboard.components.ui import load_active_bundle
 
 
@@ -50,3 +50,18 @@ def test_load_active_bundle():
     if bundle is not None:
         assert "model" in bundle
         assert "preprocessor" in bundle
+
+
+def test_create_fare_horizon_chart():
+    days = list(range(0, 61))
+    fares = [1000 + d * 5 for d in days]
+    fig = create_fare_horizon_chart(
+        days_series=days,
+        fares_series=fares,
+        current_days=10,
+        best_day=45,
+        best_fare=1225,
+        today_fare=1050,
+    )
+    assert isinstance(fig, go.Figure)
+    assert len(fig.data) == 3

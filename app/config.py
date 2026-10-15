@@ -119,3 +119,101 @@ MAX_PREV_DELAY_MIN: float = 300.0
 
 MAX_DELAY_MAE_DEGRADATION: float = 5.0  # Flag if holdout MAE increases by > 5 minutes
 PROACTIVE_ALERT_DELAY_THRESHOLD: int = 15  # Minutes of delay to trigger passenger warning
+
+# Fare Prediction & Demand Surge Module Constants
+FARE_FEATURE_COLUMNS: List[str] = [
+    "travel_class",
+    "train_type",
+    "distance_km",
+    "days_before_journey",
+    "day_of_week",
+    "month",
+    "is_festival_season",
+    "route_popularity",
+    "seats_available_pct",
+]
+FARE_CATEGORICAL_FEATURES: List[str] = ["travel_class", "train_type"]
+FARE_NUMERIC_FEATURES: List[str] = [
+    "distance_km",
+    "days_before_journey",
+    "day_of_week",
+    "month",
+    "is_festival_season",
+    "route_popularity",
+    "seats_available_pct",
+]
+FARE_TARGET_COLUMN: str = "fare_inr"
+DEMAND_TARGET_COLUMN: str = "demand_level"
+VALID_DEMAND_LEVELS: List[str] = ["Normal", "High", "Surge"]
+
+MIN_SEATS_PCT: float = 0.0
+MAX_SEATS_PCT: float = 100.0
+MIN_FARE_INR: float = 50.0
+MAX_FARE_INR: float = 20000.0
+
+BOOKING_HORIZON_DAYS: int = 60
+FARE_ANOMALY_THRESHOLD: float = 0.30  # 30% deviation triggers price anomaly flag
+MAX_FARE_MAE_DEGRADATION: float = 150.0  # Flag if holdout MAE increases by > 150 INR
+
+FARE_BASELINE_PATH: Path = DATA_DIR / "fare_baseline.csv"
+FARE_DRIFTED_PATH: Path = DATA_DIR / "fare_drifted.csv"
+
+# Centralized Passenger Module Catalog (Single Source of Truth for Nav & Cards)
+MODULE_CATALOG: List[dict] = [
+    {
+        "id": "ticket_confirmation",
+        "title": "Ticket Confirmation Predictor",
+        "short_title": "Ticket Confirmation",
+        "page": "pages/ticket_confirmation.py",
+        "desc": "Waitlist & RAC confirmation odds with TreeSHAP explainability drivers.",
+        "built": True,
+    },
+    {
+        "id": "delay",
+        "title": "Train Delay & Platform Crowd",
+        "short_title": "Train Delay & Platform",
+        "page": "pages/delay.py",
+        "desc": "Regression delay minutes range, station crowd classifier, and proactive arrival advice.",
+        "built": True,
+    },
+    {
+        "id": "fare",
+        "title": "Dynamic Fare Movement",
+        "short_title": "Fare & Demand Surge",
+        "page": "pages/fare.py",
+        "desc": "Demand surge tracking, best purchase horizon scan, and price anomaly detection.",
+        "built": True,
+    },
+    {
+        "id": "fraud",
+        "title": "Booking Fraud Shield",
+        "short_title": "Fraud Shield",
+        "page": None,
+        "desc": "High-frequency automated bot detection and risk classification.",
+        "built": False,
+    },
+    {
+        "id": "support",
+        "title": "Support Chatbot",
+        "short_title": "Support Chatbot",
+        "page": None,
+        "desc": "Grounded multilingual travel guidance and Indian script detection.",
+        "built": False,
+    },
+    {
+        "id": "recommender",
+        "title": "Train Recommender",
+        "short_title": "Train Recommender",
+        "page": None,
+        "desc": "Fair alternate train route suggestions with audit logs.",
+        "built": False,
+    },
+    {
+        "id": "planner",
+        "title": "Journey Planner Agent",
+        "short_title": "Journey Planner Agent",
+        "page": None,
+        "desc": "Autonomous multi-leg journey coordination with user approval gates.",
+        "built": False,
+    },
+]

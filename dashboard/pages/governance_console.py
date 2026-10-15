@@ -11,8 +11,6 @@ import pandas as pd
 import streamlit as st
 
 from app.base import get_service, list_services
-import app.modules.ticket_predictor  # Auto-registers ticket predictor service
-import app.modules.delay             # Auto-registers delay predictor service
 from app.config import APP_NAME
 from app.governance.audit import get_events, log_event
 from app.governance.drift import detect_drift
