@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# RailGov artifacts and database
+*.db
+models/*.joblib
+models/registry.json
+models/audit.db
