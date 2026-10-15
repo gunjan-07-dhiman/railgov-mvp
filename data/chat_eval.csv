@@ -1,0 +1,41 @@
+split,query,language,expected_faq_file,is_out_of_scope
+tuning,What is the refund rule if I cancel a confirmed ticket?,en,refunds_en.md,0
+tuning,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,refunds_hi.md,0
+tuning,How much clerkage is charged on waitlisted ticket cancellation?,en,cancellation_rules_en.md,0
+tuning,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,cancellation_rules_hi.md,0
+tuning,What does RAC status mean on my ticket?,en,pnr_status_en.md,0
+tuning,पीएनआर में सीएनएफ और आरएसी का क्या मतलब है?,hi,pnr_status_hi.md,0
+tuning,What time does Tatkal booking open for AC classes?,en,tatkal_rules_en.md,0
+tuning,एसी क्लास के लिए तत्काल बुकिंग किस समय शुरू होती है?,hi,tatkal_rules_hi.md,0
+tuning,Can a passenger travel on a waitlisted e-ticket?,en,waitlist_rac_en.md,0
+tuning,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,waitlist_rac_hi.md,0
+tuning,How does this platform predict ticket confirmation odds?,en,platform_usage_en.md,0
+tuning,यह प्लेटफॉर्म वेटलिस्ट टिकट की पुष्टि कैसे बताता है?,hi,platform_usage_hi.md,0
+tuning,What happens if my train is cancelled by the railway?,en,cancellation_rules_en.md,0
+tuning,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,cancellation_rules_hi.md,0
+tuning,When is the train reservation chart prepared?,en,pnr_status_en.md,0
+tuning,क्या कन्फर्म तत्काल टिकट रद्द करने पर रिफंड मिलता है?,hi,tatkal_rules_hi.md,0
+tuning,Can I book a domestic flight ticket to Bangalore on this site?,en,out_of_scope,1
+tuning,होटल रूम बुकिंग के लिए कौन सा कूपन कोड उपलब्ध है?,hi,out_of_scope,1
+tuning,What is the current live cricket score between India and Australia?,en,out_of_scope,1
+tuning,पनीर बटर मसाला बनाने की रेसिपी बताएं,hi,out_of_scope,1
+test,How many days does online ticket refund take to process?,en,refunds_en.md,0
+test,टिकट का रिफंड कितने दिनों में बैंक खाते में आ जाता है?,hi,refunds_hi.md,0
+test,What are the cancellation charges within 12 hours of departure?,en,refunds_en.md,0
+test,प्रस्थान से 12 घंटे पहले टिकट कैंसिल करने पर कितना कटता है?,hi,refunds_hi.md,0
+test,What is the meaning of CAN status in PNR enquiry?,en,pnr_status_en.md,0
+test,पीएनआर स्टेटस में चार्ट बनने का समय क्या होता है?,hi,pnr_status_hi.md,0
+test,When does Tatkal booking open for sleeper class?,en,tatkal_rules_en.md,0
+test,स्लीपर क्लास की तत्काल टिकट कितने बजे बुक होती है?,hi,tatkal_rules_hi.md,0
+test,What is the difference between RAC and Waitlist ticket?,en,waitlist_rac_en.md,0
+test,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,waitlist_rac_hi.md,0
+test,What features does the YatraGov AI platform offer?,en,platform_usage_en.md,0
+test,यात्रागोव एआई प्लेटफॉर्म ट्रेन की देरी का अनुमान कैसे लगाता है?,hi,platform_usage_hi.md,0
+test,Can two passengers share an RAC side lower berth?,en,waitlist_rac_en.md,0
+test,क्या आरएसी टिकट पर दो यात्री एक सीट साझा करते हैं?,hi,waitlist_rac_hi.md,0
+test,How do I file a TDR if the train is delayed by 3 hours?,en,cancellation_rules_en.md,0
+test,ट्रेन लेट होने पर टीडीआर (TDR) कब दाखिल करना चाहिए?,hi,cancellation_rules_hi.md,0
+test,Can I order fresh pizza delivery to my coach seat?,en,out_of_scope,1
+test,मुझे पासपोर्ट रिन्यूअल के लिए अपॉइंटमेंट बुक करना है,hi,out_of_scope,1
+test,What are the stock prices of technology companies today?,en,out_of_scope,1
+test,कार ड्राइविंग लाइसेंस का ऑनलाइन टेस्ट कैसे पास करें?,hi,out_of_scope,1

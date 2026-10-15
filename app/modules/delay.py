@@ -13,7 +13,10 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 import joblib
 import numpy as np
 import pandas as pd
-import shap
+try:
+    import shap
+except ImportError:
+    shap = None  # shap is optional; explanations will be omitted if unavailable
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score, mean_absolute_error, mean_squared_error, r2_score
@@ -305,36 +308,37 @@ class DelayPredictorService(ModelService):
         cong_probs = clf_model.predict_proba(X_trans)[0]
         cong_conf = float(np.max(cong_probs))
 
-        # 3. Top 3 Plain-English Contributing Factors using TreeExplainer
-        explainer = shap.TreeExplainer(reg_model)
-        shap_vals = explainer.shap_values(X_trans)[0]
-
-        # Aggregate one-hot back to parent features
-        feat_contributions: Dict[str, float] = {f: 0.0 for f in self.feature_columns}
-        for name, s_val in zip(transformed_names, shap_vals):
-            matched = False
-            for cat in self.categorical_features:
-                if name.startswith(f"cat__{cat}_") or name.startswith(f"{cat}_"):
-                    feat_contributions[cat] += float(s_val)
-                    matched = True
-                    break
-            if not matched:
-                for num in self.numeric_features:
-                    if name.endswith(num):
-                        feat_contributions[num] += float(s_val)
-                        break
-
-        ranked = sorted(feat_contributions.items(), key=lambda item: abs(item[1]), reverse=True)[:3]
+        # 3. Top 3 Plain-English Contributing Factors using TreeExplainer (optional)
         top_factors = []
-        for feat, impact in ranked:
-            val = df_row[feat].iloc[0]
-            explanation = format_delay_explanation(feat, val, impact)
-            top_factors.append({
-                "feature": feat,
-                "value": val if not isinstance(val, (np.integer, np.floating)) else val.item(),
-                "impact_minutes": round(float(impact), 1),
-                "explanation": explanation,
-            })
+        if shap:
+            explainer = shap.TreeExplainer(reg_model)
+            shap_vals = explainer.shap_values(X_trans)[0]
+
+            # Aggregate one-hot back to parent features
+            feat_contributions: Dict[str, float] = {f: 0.0 for f in self.feature_columns}
+            for name, s_val in zip(transformed_names, shap_vals):
+                matched = False
+                for cat in self.categorical_features:
+                    if name.startswith(f"cat__{cat}_") or name.startswith(f"{cat}_"):
+                        feat_contributions[cat] += float(s_val)
+                        matched = True
+                        break
+                if not matched:
+                    for num in self.numeric_features:
+                        if name.endswith(num):
+                            feat_contributions[num] += float(s_val)
+                            break
+
+            ranked = sorted(feat_contributions.items(), key=lambda item: abs(item[1]), reverse=True)[:3]
+            for feat, impact in ranked:
+                val = df_row[feat].iloc[0]
+                explanation = format_delay_explanation(feat, val, impact)
+                top_factors.append({
+                    "feature": feat,
+                    "value": val if not isinstance(val, (np.integer, np.floating)) else val.item(),
+                    "impact_minutes": round(float(impact), 1),
+                    "explanation": explanation,
+                })
 
         # 4. Proactive Passenger Alert
         if predicted_min >= PROACTIVE_ALERT_DELAY_THRESHOLD or predicted_congestion == "High":

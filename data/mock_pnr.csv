@@ -1,0 +1,31 @@
+pnr_number,passenger_name,train_number,train_name,travel_class,journey_date,booking_status,current_status,refund_status
+1234567890,Aarav Sharma,12951,Mumbai Rajdhani,3A,2026-10-25,WL 14,CNF B3-24,N/A
+2345678901,Priya Patel,12002,Bhopal Shatabdi,CC,2026-10-22,CNF C2-18,CNF C2-18,N/A
+3456789012,Rohan Mehta,12259,Sealdah Duronto,2A,2026-10-28,WL 8,RAC 4,N/A
+4567890123,Ananya Iyer,12626,Kerala Express,SL,2026-10-24,WL 45,WL 12,N/A
+5678901234,Vikram Singh,12424,Dibrugarh Rajdhani,3A,2026-10-26,RAC 12,CNF B5-36,N/A
+6789012345,Neha Gupta,12953,August Kranti Rajdhani,2A,2026-10-23,CNF A1-12,CNF A1-12,N/A
+7890123456,Siddharth Verma,12138,Punjab Mail,SL,2026-10-27,WL 88,CAN,Refund Processed (₹340)
+8901234567,Kavita Reddy,12004,Lucknow Shatabdi,CC,2026-10-21,CNF C4-32,CNF C4-32,N/A
+9012345678,Aditya Nair,12301,Howrah Rajdhani,1A,2026-10-30,WL 2,CNF H1-4,N/A
+9823471029,Deepak Joshi,12952,New Delhi Rajdhani,3A,2026-10-29,WL 22,RAC 2,N/A
+8765432109,Sunita Sen,12009,Mumbai Central Shatabdi,CC,2026-10-20,CNF C1-45,CNF C1-45,N/A
+7654321098,Amit Roy,12246,Yesvantpur Duronto,SL,2026-10-26,WL 110,WL 42,N/A
+6543210987,Pooja Desai,12431,Trivandrum Rajdhani,2A,2026-10-31,WL 5,CNF A2-19,N/A
+5432109876,Manish Kumar,12618,Mangala Lakshadweep,SL,2026-10-24,RAC 8,CNF S4-51,N/A
+4321098765,Shweta Rao,12028,KSR Bengaluru Shatabdi,CC,2026-10-22,CNF C3-12,CNF C3-12,N/A
+3210987654,Rajesh Pillai,12954,August Kranti Express,3A,2026-10-25,CAN,CAN,Refund Processed (₹1120)
+2109876543,Divya Menon,12260,Sealdah Duronto,2A,2026-10-29,WL 16,WL 6,N/A
+1098765432,Karthik Bhat,12625,Kerala Express,3A,2026-10-23,CNF B2-40,CNF B2-40,N/A
+9988776655,Meera Bose,12423,Rajdhani Express,3A,2026-10-27,WL 30,RAC 6,N/A
+8877665544,Suresh Nambiar,12137,Punjab Mail,SL,2026-10-28,WL 65,WL 20,N/A
+7766554433,Jyoti Mishra,12001,Bhopal Shatabdi,CC,2026-10-21,CNF C5-20,CNF C5-20,N/A
+6655443322,Harish Chawla,12302,Kolkata Rajdhani,1A,2026-10-26,WL 3,CNF H1-8,N/A
+5544332211,Ritu Agarwal,12951,Tejas Rajdhani,2A,2026-10-24,RAC 4,CNF A3-22,N/A
+4433221100,Gaurav Kulkarni,12245,Howrah Duronto,3A,2026-10-25,CAN,CAN,Refund Credited (₹1450)
+3322110099,Swati Saxena,12626,New Delhi Express,SL,2026-10-29,WL 40,WL 18,N/A
+2211009988,Tarun Malhotra,12003,Lucknow Swarna Shatabdi,CC,2026-10-22,CNF C2-33,CNF C2-33,N/A
+1100998877,Bhavna Sethi,12424,New Delhi Rajdhani,3A,2026-10-30,WL 12,RAC 1,N/A
+9182736450,Naveen Jain,12953,August Kranti,2A,2026-10-23,CNF A1-28,CNF A1-28,N/A
+8273645190,Rashmi Pandey,12138,Firozpur Mail,SL,2026-10-27,WL 95,WL 50,N/A
+7364519280,Vivek Trivedi,12010,Ahmedabad Shatabdi,CC,2026-10-20,CNF C1-14,CNF C1-14,N/A

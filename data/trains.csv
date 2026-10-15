@@ -1,0 +1,37 @@
+train_number,train_name,from_station,to_station,dep_time,arr_time,duration_hrs,sl_fare,ac3_fare,cleanliness_rating,punctuality_pct,train_type
+12952,Mumbai Tejas Rajdhani,New Delhi,Mumbai Central,16:55,08:35,15.6,850,2250,4.8,96,Rajdhani
+12954,August Kranti Rajdhani,New Delhi,Mumbai Central,17:15,10:05,16.8,820,2180,4.6,92,Rajdhani
+12951,Tejas Rajdhani Express,Mumbai Central,New Delhi,17:00,08:32,15.5,850,2250,4.8,95,Rajdhani
+12926,Paschim SF Express,New Delhi,Mumbai Central,16:35,14:45,22.1,595,1580,4.1,84,Superfast
+12138,Punjab Mail,New Delhi,Mumbai Central,05:10,07:35,26.4,540,1460,3.9,79,Express
+22222,CSMT Rajdhani Express,Delhi,Mumbai,16:55,11:15,18.3,860,2280,4.7,93,Rajdhani
+12009,Mumbai Ahmedabad Shatabdi,Mumbai Central,Ahmedabad,06:20,12:45,6.4,380,1050,4.8,96,Shatabdi
+20901,Vande Bharat Express,Mumbai Central,Gandhinagar Capital,06:00,12:25,6.4,490,1420,4.9,98,Vande Bharat
+12263,Pune Duronto Express,Delhi,Pune,06:15,07:05,24.8,620,1650,4.7,94,Duronto
+12780,Goa SF Express,Delhi,Pune,15:15,16:50,25.5,580,1480,4.3,88,Superfast
+11078,Jhelum Express,Delhi,Pune,10:15,15:30,29.2,510,1340,3.8,76,Express
+12164,Chennai SF Express,Delhi,Chennai Central,18:50,20:45,25.9,680,1790,4.4,90,Superfast
+12622,Tamil Nadu Express,Delhi,Chennai Central,21:05,06:15,33.1,610,1620,4.5,91,Superfast
+22436,Vande Bharat Express,New Delhi,Varanasi,06:00,14:00,8.0,460,1750,4.9,98,Vande Bharat
+12424,Dibrugarh Rajdhani,New Delhi,Varanasi,16:20,01:25,9.0,720,1890,4.8,95,Rajdhani
+14258,Kashi Vishwanath Express,New Delhi,Varanasi,11:35,04:50,17.2,350,910,4.0,82,Express
+12002,Bhopal Shatabdi,New Delhi,Bhopal,06:00,14:40,8.6,480,1210,4.9,97,Shatabdi
+12156,Shan-e-Bhopal Express,New Delhi,Bhopal,20:40,06:20,9.6,390,990,4.6,93,Superfast
+12051,Jan Shatabdi Express,Mumbai Central,Madgaon (Goa),05:10,14:10,9.0,320,890,4.5,92,Jan Shatabdi
+10103,Mandovi Express,Mumbai Central,Madgaon (Goa),07:10,18:45,11.5,290,780,4.2,85,Express
+22229,Vande Bharat Express,Mumbai CSMT,Madgaon (Goa),05:25,13:10,7.7,480,1540,4.9,97,Vande Bharat
+12015,Ajmer Shatabdi Express,New Delhi,Jaipur,06:10,10:40,4.5,290,780,4.7,95,Shatabdi
+20978,Vande Bharat Express,Delhi Cantt,Jaipur,15:15,19:10,3.9,420,1050,4.9,98,Vande Bharat
+12986,Delhi Sarai Rohilla Double Decker,Delhi,Jaipur,17:35,22:05,4.5,210,540,4.3,88,Superfast
+12004,Lucknow Shatabdi Express,New Delhi,Lucknow,06:10,12:40,6.5,380,1160,4.8,96,Shatabdi
+12430,Lucknow AC SF Express,New Delhi,Lucknow,23:25,07:10,7.7,350,990,4.6,92,Superfast
+12554,Vaishali SF Express,New Delhi,Kanpur Central,20:40,02:25,5.7,290,760,4.2,84,Superfast
+12302,Howrah Rajdhani Express,New Delhi,Kolkata (Howrah),16:50,09:55,17.0,890,2380,4.8,94,Rajdhani
+12304,Poorva Express,New Delhi,Kolkata (Howrah),17:40,17:00,23.3,620,1650,4.2,86,Superfast
+12394,Sampoorna Kranti Express,New Delhi,Patna,17:30,06:50,13.3,510,1360,4.5,91,Superfast
+12296,Sanghamitra Express,Bangalore,Chennai Central,09:00,15:40,6.6,220,580,4.3,89,Superfast
+12640,Brindavan Express,Bangalore,Chennai Central,15:10,21:10,6.0,190,520,4.4,92,Express
+20608,Vande Bharat Express,Mysuru (via Bangalore),Chennai Central,05:45,10:25,4.6,350,980,4.9,98,Vande Bharat
+12724,Telangana Express,New Delhi,Hyderabad (Secunderabad),16:00,17:10,25.1,660,1740,4.4,89,Superfast
+12046,Chandigarh Shatabdi,New Delhi,Chandigarh,19:15,22:45,3.5,250,680,4.8,96,Shatabdi
+12011,Kalka Shatabdi,New Delhi,Chandigarh,07:40,11:05,3.4,250,680,4.8,97,Shatabdi

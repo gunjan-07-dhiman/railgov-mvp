@@ -49,51 +49,71 @@ def main():
     # Hero Banner in Navy with Saffron Tagline & Track Line
     render_hero_banner()
 
-    # Section Title: Active Journey Modules
+    # Section Title: The 6 Core Travel Features
     st.markdown(
         """
         <div class="rail-section-header" style="margin-bottom: 0.85rem;">
-            JOURNEY MODULES & CONTROL SYSTEMS
+            THE 6 CORE AI TRAVEL FEATURES
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    # Active Modules + Governance Console in 4 equal columns
-    active_modules = [m for m in MODULE_CATALOG if m["built"]]
-    active_cols = st.columns(len(active_modules) + 1)
+    # Clean 3-column responsive grid for the 6 features
+    cols_per_row = 3
+    for i in range(0, len(MODULE_CATALOG), cols_per_row):
+        row_mods = MODULE_CATALOG[i : i + cols_per_row]
+        row_cols = st.columns(cols_per_row)
+        for col, mod in zip(row_cols, row_mods):
+            with col:
+                num = mod.get("num", i + 1)
+                is_built = mod.get("built", False)
+                opacity_style = "opacity: 1;" if is_built else "opacity: 0.85; border-style: dashed;"
+                badge_html = f'<span style="font-family: \'Share Tech Mono\', monospace; font-size: 0.72rem; color: #10B981; font-weight: 700;">FEATURE #{num} • ACTIVE</span>' if is_built else f'<span class="rail-badge-soon">FEATURE #{num} • SOON</span>'
 
-    for col, mod in zip(active_cols[:len(active_modules)], active_modules):
-        with col:
-            st.markdown(
-                f"""
-                <div class="yg-ticket" style="min-height: 195px; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #0B1F3A;">
-                            {mod['title']}
+                st.markdown(
+                    f"""
+                    <div class="yg-ticket" style="{opacity_style} min-height: 185px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                                {badge_html}
+                            </div>
+                            <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #0B1F3A;">
+                                {mod['title']}
+                            </div>
+                            <div style="font-size: 0.85rem; color: #5B6B82; margin-top: 0.35rem; line-height: 1.35;">
+                                {mod['desc']}
+                            </div>
                         </div>
-                        <div style="font-size: 0.84rem; color: #5B6B82; margin-top: 0.35rem; line-height: 1.35;">
-                            {mod['desc']}
-                        </div>
+                        <div class="yg-ticket-tear" style="margin: 0.65rem 0;"></div>
                     </div>
-                    <div class="yg-ticket-tear" style="margin: 0.65rem 0;"></div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-            st.page_link(mod["page"], label=f"Open {mod['short_title']} →", use_container_width=True)
+                    """,
+                    unsafe_allow_html=True,
+                )
+                if is_built:
+                    st.page_link(mod["page"], label=f"Open {mod['short_title']} →", use_container_width=True)
+                else:
+                    st.caption("Module pipeline planned in expansion cycle.")
 
-    with active_cols[-1]:
+    # Governance Console
+    st.markdown(
+        """
+        <div class="rail-section-header" style="margin-top: 2rem; margin-bottom: 0.85rem;">
+            AI GOVERNANCE & AUDIT CONTROLS
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    gov_col1, gov_col2 = st.columns([1.5, 1.5])
+    with gov_col1:
         st.markdown(
-            """
-            <div class="yg-ticket" style="min-height: 195px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #0B1F3A;">
-                        AI Governance Console
-                    </div>
-                    <div style="font-size: 0.84rem; color: #5B6B82; margin-top: 0.35rem; line-height: 1.35;">
-                        Statistical covariate drift (PSI/KS), model catalog, rollback, and autonomous supervisor.
-                    </div>
+            f"""
+            <div class="yg-ticket" style="min-height: 160px;">
+                <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; text-transform: uppercase; color: #0B1F3A;">
+                    Governance Console
+                </div>
+                <div style="font-size: 0.85rem; color: #5B6B82; margin-top: 0.35rem; line-height: 1.35;">
+                    Central oversight for statistical covariate drift (PSI/KS), model catalog, instant rollback, and autonomous health supervisor.
                 </div>
                 <div class="yg-ticket-tear" style="margin: 0.65rem 0;"></div>
             </div>
@@ -101,39 +121,6 @@ def main():
             unsafe_allow_html=True,
         )
         st.page_link("pages/governance_console.py", label="Open Governance Console →", use_container_width=True)
-
-    # Roadmap Modules (Greyed with 'Coming soon' stamp)
-    st.markdown(
-        """
-        <div class="rail-section-header" style="margin-top: 2rem; margin-bottom: 0.85rem;">
-            ROADMAP & EXPANSION PIPELINE
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    roadmap_items = [m for m in MODULE_CATALOG if not m["built"]]
-    road_cols = st.columns(len(roadmap_items))
-    for col, mod in zip(road_cols, roadmap_items):
-        with col:
-            st.markdown(
-                f"""
-                <div class="yg-ticket" style="opacity: 0.85; background: {WARM_PAPER}; min-height: 165px; display: flex; flex-direction: column; justify-content: space-between; border-style: dashed;">
-                    <div>
-                        <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: #0B1F3A; line-height: 1.2;">
-                            {mod['title']}
-                        </div>
-                        <div style="font-size: 0.82rem; color: #5B6B82; margin-top: 0.35rem; line-height: 1.35;">
-                            {mod['desc']}
-                        </div>
-                    </div>
-                    <div>
-                        <span class="rail-badge-soon" style="display: inline-block; margin-top: 0.5rem;">Coming soon</span>
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
 
     render_footer()
 

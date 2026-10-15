@@ -95,14 +95,15 @@ def render_sidebar_route_navigation(active_page_id: str) -> None:
         use_container_width=True,
     )
 
-    # 2. PASSENGER SERVICES
-    st.sidebar.markdown('<div class="rail-sidebar-section">PASSENGER SERVICES</div>', unsafe_allow_html=True)
+    # 2. 6 CORE FEATURES
+    st.sidebar.markdown('<div class="rail-sidebar-section">6 CORE AI FEATURES</div>', unsafe_allow_html=True)
     for mod in MODULE_CATALOG:
+        num_prefix = f"{mod.get('num', '')}. " if mod.get('num') else ""
         if mod["built"]:
             is_active = active_page_id == mod["id"]
             st.sidebar.page_link(
                 mod["page"],
-                label=f"{'●' if is_active else '○'}  {mod['short_title']}",
+                label=f"{'●' if is_active else '○'}  {num_prefix}{mod['short_title']}",
                 use_container_width=True,
             )
         else:
@@ -111,7 +112,7 @@ def render_sidebar_route_navigation(active_page_id: str) -> None:
                 <div class="rail-nav-disabled">
                     <div style="display: flex; align-items: center;">
                         <span class="rail-dot rail-dot-soon"></span>
-                        <span>{mod['short_title']}</span>
+                        <span>{num_prefix}{mod['short_title']}</span>
                     </div>
                     <span class="rail-badge-soon">SOON</span>
                 </div>

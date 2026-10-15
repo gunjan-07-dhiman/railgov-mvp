@@ -46,8 +46,8 @@ def main():
 
     # Page Header in Barlow Condensed with saffron underline
     render_page_header(
-        title="BOOKING FRAUD SHIELD & BOT DEFENSE",
-        subtitle="High-frequency automated script detection, session velocity analysis, and behavioral TreeSHAP drivers.",
+        title="ANTI-CHEAT / ANTI-BOT SYSTEM",
+        subtitle="Catches scalpers and automated bots booking all the Tatkal tickets in 5 seconds.",
     )
 
     st.markdown(

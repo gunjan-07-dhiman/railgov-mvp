@@ -34,13 +34,53 @@ def apply_theme() -> None:
     st.markdown(
         f"""
         <style>
-        /* 1. Google Fonts Import (Barlow Condensed, Barlow, Share Tech Mono) with System Fallback */
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+        /* 1. Google Fonts Import (Barlow Condensed, Barlow, Share Tech Mono, Material Symbols) */
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=Share+Tech+Mono&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 
         /* 2. Global Resets & Body Typography */
-        html, body, [class*="css"], [class*="st-"] {{
+        html, body, p, label, input, textarea, select {{
             font-family: {FONT_BODY};
+        }}
+
+        .main p, .main label, .main input, .main textarea, .main select {{
             color: {NAVY};
+        }}
+
+        /* Ensure all text in sidebar is high-contrast crisp white/silver */
+        section[data-testid="stSidebar"],
+        section[data-testid="stSidebar"] span,
+        section[data-testid="stSidebar"] p,
+        section[data-testid="stSidebar"] div {{
+            color: #E2E8F0 !important;
+        }}
+
+        section[data-testid="stSidebar"] .rail-sidebar-section {{
+            color: {MUTED_DARK} !important;
+        }}
+
+        /* Enforce icon font for all Material Symbols */
+        [data-testid*="stIcon"],
+        span[translate="no"],
+        .material-symbols-rounded,
+        .material-symbols {{
+            font-family: 'Material Symbols Rounded' !important;
+        }}
+
+        /* Hide Streamlit chat avatar ligature icons to prevent any text bleed / overlap */
+        [data-testid="stChatMessage"] [data-testid*="stChatMessageAvatar"],
+        [data-testid="stChatMessageAvatarAssistant"],
+        [data-testid="stChatMessageAvatarUser"] {{
+            display: none !important;
+        }}
+
+        /* Clean message card container */
+        [data-testid="stChatMessage"] {{
+            background-color: #FFFFFF !important;
+            border: 1px solid #E2E8F0 !important;
+            border-radius: 10px !important;
+            padding: 1rem 1.25rem !important;
+            margin-bottom: 0.85rem !important;
+            box-shadow: 0 1px 3px rgba(11, 31, 58, 0.04) !important;
         }}
 
         .stApp {{
@@ -188,8 +228,10 @@ def apply_theme() -> None:
             text-transform: uppercase;
         }}
 
-        /* 8. Primary Saffron Buttons with Navy Text */
-        .stButton > button, div[data-testid="stFormSubmitButton"] > button {{
+        /* 8. Form Submit & Primary Action Buttons (Saffron & Uppercase) */
+        div[data-testid="stFormSubmitButton"] > button,
+        button[kind="primary"],
+        .stButton > button[kind="primary"] {{
             background-color: {SAFFRON} !important;
             color: {NAVY} !important;
             border: 1px solid #E08700 !important;
@@ -204,10 +246,39 @@ def apply_theme() -> None:
             box-shadow: 0 2px 6px rgba(255, 159, 28, 0.3) !important;
         }}
 
-        .stButton > button:hover, div[data-testid="stFormSubmitButton"] > button:hover {{
+        div[data-testid="stFormSubmitButton"] > button:hover,
+        button[kind="primary"]:hover,
+        .stButton > button[kind="primary"]:hover {{
             background-color: {SAFFRON_HOVER} !important;
             box-shadow: 0 4px 12px rgba(255, 159, 28, 0.45) !important;
             transform: translateY(-1px);
+        }}
+
+        /* Standard Interactive Buttons (Suggestion Chips, Feedback, Page Links) - Clean, no truncation, no uppercase */
+        .stButton > button {{
+            background-color: #FFFFFF !important;
+            color: {NAVY} !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 8px !important;
+            padding: 0.45rem 0.85rem !important;
+            font-family: {FONT_BODY} !important;
+            font-size: 0.88rem !important;
+            font-weight: 500 !important;
+            letter-spacing: normal !important;
+            text-transform: none !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            line-height: 1.35 !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+            transition: all 0.15s ease-in-out !important;
+        }}
+
+        .stButton > button:hover {{
+            background-color: #F8FAFC !important;
+            border-color: {SAFFRON} !important;
+            color: {NAVY} !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+            transform: translateY(-1px) !important;
         }}
 
         /* 9. Railway Page Titles with Saffron Underline */

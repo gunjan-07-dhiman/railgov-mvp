@@ -49,8 +49,8 @@ def main():
 
     # Page Header in Barlow Condensed with saffron underline
     render_page_header(
-        title="TICKET CONFIRMATION PREDICTOR",
-        subtitle="Calibrated Waitlist & RAC confirmation odds with TreeSHAP explainability drivers.",
+        title="TICKET CONFIRM PREDICTOR",
+        subtitle="Calibrated Waitlist & RAC confirmation odds (e.g. 'Your WL 12 has an 82% chance of confirming').",
     )
 
     col_form, col_space, col_result = st.columns([1.15, 0.05, 1.15])

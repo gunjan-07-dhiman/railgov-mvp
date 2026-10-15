@@ -1,0 +1,301 @@
+query_id,query_text,language,char_length,has_pnr,similarity_score,is_grounded,is_escalated
+q_0001,What are the clerkage charges for ticket cancellation?,en,54,0,0.5349,1,0
+q_0002,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.5364,1,0
+q_0003,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.6579,1,0
+q_0004,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1392,0,1
+q_0005,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.3368,1,0
+q_0006,कृपया मेरे पीएनआर नंबर 6152559666 की स्थिति बताएं,hi,49,1,0.7956,1,0
+q_0007,When is the reservation chart prepared before departure?,en,56,0,0.3814,1,0
+q_0008,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1155,0,1
+q_0009,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.0707,0,1
+q_0010,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3856,1,0
+q_0011,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.3865,1,0
+q_0012,How do I check PNR status on this platform?,en,43,0,0.6536,1,0
+q_0013,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3363,1,0
+q_0014,What are the clerkage charges for ticket cancellation?,en,54,0,0.5312,1,0
+q_0015,What are the clerkage charges for ticket cancellation?,en,54,0,0.6088,1,0
+q_0016,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.0999,0,1
+q_0017,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.1811,0,1
+q_0018,Please check my PNR status 5704750624,en,37,1,0.7159,1,0
+q_0019,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.4189,1,0
+q_0020,What does RAC status mean on my train ticket?,en,45,0,0.5939,1,0
+q_0021,What is the refund rule on ticket cancellation?,en,47,0,0.5758,1,0
+q_0022,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1034,0,1
+q_0023,What are the clerkage charges for ticket cancellation?,en,54,0,0.5143,1,0
+q_0024,What does RAC status mean on my train ticket?,en,45,0,0.378,1,0
+q_0025,How do I check PNR status on this platform?,en,43,0,0.4844,1,0
+q_0026,What happens if my train is cancelled by the railway?,en,53,0,0.6107,1,0
+q_0027,कृपया मेरे पीएनआर नंबर 3781807898 की स्थिति बताएं,hi,49,1,0.8068,1,0
+q_0028,Please check my PNR status 3082328893,en,37,1,0.7555,1,0
+q_0029,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1187,0,1
+q_0030,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1711,0,1
+q_0031,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1355,0,1
+q_0032,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.1657,0,1
+q_0033,When is the reservation chart prepared before departure?,en,56,0,0.562,1,0
+q_0034,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.4893,1,0
+q_0035,What happens if my train is cancelled by the railway?,en,53,0,0.6207,1,0
+q_0036,कृपया मेरे पीएनआर नंबर 2707558823 की स्थिति बताएं,hi,49,1,0.7967,1,0
+q_0037,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.3953,1,0
+q_0038,What happens if my train is cancelled by the railway?,en,53,0,0.6142,1,0
+q_0039,What happens if my train is cancelled by the railway?,en,53,0,0.6676,1,0
+q_0040,What is the refund rule on ticket cancellation?,en,47,0,0.4457,1,0
+q_0041,What happens if my train is cancelled by the railway?,en,53,0,0.6396,1,0
+q_0042,What happens if my train is cancelled by the railway?,en,53,0,0.5383,1,0
+q_0043,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.0983,0,1
+q_0044,What are the clerkage charges for ticket cancellation?,en,54,0,0.4007,1,0
+q_0045,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.4519,1,0
+q_0046,What happens if my train is cancelled by the railway?,en,53,0,0.3537,1,0
+q_0047,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.6724,1,0
+q_0048,What are the clerkage charges for ticket cancellation?,en,54,0,0.5009,1,0
+q_0049,What are the clerkage charges for ticket cancellation?,en,54,0,0.4997,1,0
+q_0050,Please check my PNR status 9392059356,en,37,1,0.7699,1,0
+q_0051,What are the clerkage charges for ticket cancellation?,en,54,0,0.4741,1,0
+q_0052,When is the reservation chart prepared before departure?,en,56,0,0.4301,1,0
+q_0053,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5204,1,0
+q_0054,What happens if my train is cancelled by the railway?,en,53,0,0.3952,1,0
+q_0055,When does Tatkal booking open for AC coaches?,en,45,0,0.6359,1,0
+q_0056,What happens if my train is cancelled by the railway?,en,53,0,0.519,1,0
+q_0057,What happens if my train is cancelled by the railway?,en,53,0,0.6488,1,0
+q_0058,What is the refund rule on ticket cancellation?,en,47,0,0.3455,1,0
+q_0059,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.4552,1,0
+q_0060,Please check my PNR status 1665898681,en,37,1,0.8357,1,0
+q_0061,Please check my PNR status 6597482766,en,37,1,0.79,1,0
+q_0062,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.2141,0,1
+q_0063,How do I check PNR status on this platform?,en,43,0,0.5146,1,0
+q_0064,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5773,1,0
+q_0065,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.0633,0,1
+q_0066,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.167,0,1
+q_0067,How do I apply for an international tourist visa?,en,49,0,0.066,0,1
+q_0068,What are the clerkage charges for ticket cancellation?,en,54,0,0.5856,1,0
+q_0069,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5238,1,0
+q_0070,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3366,1,0
+q_0071,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.0529,0,1
+q_0072,How do I check PNR status on this platform?,en,43,0,0.4762,1,0
+q_0073,When does Tatkal booking open for AC coaches?,en,45,0,0.4139,1,0
+q_0074,What are the trending stock market picks for today?,en,51,0,0.1663,0,1
+q_0075,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5309,1,0
+q_0076,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.3663,1,0
+q_0077,What is the refund rule on ticket cancellation?,en,47,0,0.666,1,0
+q_0078,कृपया मेरे पीएनआर नंबर 5462312700 की स्थिति बताएं,hi,49,1,0.7236,1,0
+q_0079,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5654,1,0
+q_0080,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5708,1,0
+q_0081,What are the clerkage charges for ticket cancellation?,en,54,0,0.6683,1,0
+q_0082,What does RAC status mean on my train ticket?,en,45,0,0.6766,1,0
+q_0083,What happens if my train is cancelled by the railway?,en,53,0,0.6322,1,0
+q_0084,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.5916,1,0
+q_0085,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1044,0,1
+q_0086,Please check my PNR status 4638452114,en,37,1,0.7228,1,0
+q_0087,What does RAC status mean on my train ticket?,en,45,0,0.4975,1,0
+q_0088,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1643,0,1
+q_0089,What are the clerkage charges for ticket cancellation?,en,54,0,0.6551,1,0
+q_0090,Please check my PNR status 2507168490,en,37,1,0.8765,1,0
+q_0091,What is the refund rule on ticket cancellation?,en,47,0,0.3564,1,0
+q_0092,Please check my PNR status 9125635354,en,37,1,0.8766,1,0
+q_0093,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.113,0,1
+q_0094,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.4461,1,0
+q_0095,When is the reservation chart prepared before departure?,en,56,0,0.4727,1,0
+q_0096,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.4659,1,0
+q_0097,When is the reservation chart prepared before departure?,en,56,0,0.5537,1,0
+q_0098,When is the reservation chart prepared before departure?,en,56,0,0.492,1,0
+q_0099,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.0521,0,1
+q_0100,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.6529,1,0
+q_0101,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.5083,1,0
+q_0102,What are the clerkage charges for ticket cancellation?,en,54,0,0.5709,1,0
+q_0103,When does Tatkal booking open for AC coaches?,en,45,0,0.6621,1,0
+q_0104,What happens if my train is cancelled by the railway?,en,53,0,0.3811,1,0
+q_0105,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.348,1,0
+q_0106,What is the refund rule on ticket cancellation?,en,47,0,0.4207,1,0
+q_0107,What are the clerkage charges for ticket cancellation?,en,54,0,0.6479,1,0
+q_0108,When is the reservation chart prepared before departure?,en,56,0,0.6509,1,0
+q_0109,What are the trending stock market picks for today?,en,51,0,0.0545,0,1
+q_0110,What is the refund rule on ticket cancellation?,en,47,0,0.4556,1,0
+q_0111,What is the refund rule on ticket cancellation?,en,47,0,0.6218,1,0
+q_0112,What happens if my train is cancelled by the railway?,en,53,0,0.3471,1,0
+q_0113,What does RAC status mean on my train ticket?,en,45,0,0.52,1,0
+q_0114,What is the refund rule on ticket cancellation?,en,47,0,0.4068,1,0
+q_0115,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.4023,1,0
+q_0116,What happens if my train is cancelled by the railway?,en,53,0,0.328,1,0
+q_0117,When does Tatkal booking open for AC coaches?,en,45,0,0.6268,1,0
+q_0118,What is the refund rule on ticket cancellation?,en,47,0,0.5324,1,0
+q_0119,How do I check PNR status on this platform?,en,43,0,0.5735,1,0
+q_0120,कृपया मेरे पीएनआर नंबर 7906684721 की स्थिति बताएं,hi,49,1,0.8475,1,0
+q_0121,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5171,1,0
+q_0122,When does Tatkal booking open for AC coaches?,en,45,0,0.6305,1,0
+q_0123,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5968,1,0
+q_0124,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1059,0,1
+q_0125,कृपया मेरे पीएनआर नंबर 2976196758 की स्थिति बताएं,hi,49,1,0.732,1,0
+q_0126,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.5707,1,0
+q_0127,What happens if my train is cancelled by the railway?,en,53,0,0.382,1,0
+q_0128,कृपया मेरे पीएनआर नंबर 1136600085 की स्थिति बताएं,hi,49,1,0.7222,1,0
+q_0129,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.0719,0,1
+q_0130,कृपया मेरे पीएनआर नंबर 5646119662 की स्थिति बताएं,hi,49,1,0.8279,1,0
+q_0131,Please check my PNR status 7950351321,en,37,1,0.89,1,0
+q_0132,Please check my PNR status 7216588793,en,37,1,0.7885,1,0
+q_0133,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3272,1,0
+q_0134,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.404,1,0
+q_0135,What is the refund rule on ticket cancellation?,en,47,0,0.4994,1,0
+q_0136,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.146,0,1
+q_0137,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.5255,1,0
+q_0138,What is the refund rule on ticket cancellation?,en,47,0,0.3227,1,0
+q_0139,How do I check PNR status on this platform?,en,43,0,0.3872,1,0
+q_0140,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.3386,1,0
+q_0141,How do I apply for an international tourist visa?,en,49,0,0.1176,0,1
+q_0142,What is the refund rule on ticket cancellation?,en,47,0,0.4967,1,0
+q_0143,What does RAC status mean on my train ticket?,en,45,0,0.5258,1,0
+q_0144,How do I check PNR status on this platform?,en,43,0,0.5759,1,0
+q_0145,What is the refund rule on ticket cancellation?,en,47,0,0.5398,1,0
+q_0146,Please check my PNR status 2585832837,en,37,1,0.7842,1,0
+q_0147,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1664,0,1
+q_0148,कृपया मेरे पीएनआर नंबर 3558248906 की स्थिति बताएं,hi,49,1,0.8183,1,0
+q_0149,Please check my PNR status 4567483197,en,37,1,0.8865,1,0
+q_0150,When does Tatkal booking open for AC coaches?,en,45,0,0.3852,1,0
+q_0151,What are the trending stock market picks for today?,en,51,0,0.0738,0,1
+q_0152,कृपया मेरे पीएनआर नंबर 1800603300 की स्थिति बताएं,hi,49,1,0.9036,1,0
+q_0153,What are the clerkage charges for ticket cancellation?,en,54,0,0.5318,1,0
+q_0154,What happens if my train is cancelled by the railway?,en,53,0,0.4866,1,0
+q_0155,What is the refund rule on ticket cancellation?,en,47,0,0.4479,1,0
+q_0156,Please check my PNR status 9331515525,en,37,1,0.7832,1,0
+q_0157,Please check my PNR status 3291197939,en,37,1,0.8854,1,0
+q_0158,What are the clerkage charges for ticket cancellation?,en,54,0,0.4095,1,0
+q_0159,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.4978,1,0
+q_0160,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.6247,1,0
+q_0161,What are the trending stock market picks for today?,en,51,0,0.1327,0,1
+q_0162,Please check my PNR status 6376436010,en,37,1,0.8498,1,0
+q_0163,How do I check PNR status on this platform?,en,43,0,0.4643,1,0
+q_0164,Please check my PNR status 1597499495,en,37,1,0.8265,1,0
+q_0165,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3568,1,0
+q_0166,Please check my PNR status 3475139675,en,37,1,0.7936,1,0
+q_0167,कृपया मेरे पीएनआर नंबर 4975286485 की स्थिति बताएं,hi,49,1,0.9277,1,0
+q_0168,कृपया मेरे पीएनआर नंबर 4736176446 की स्थिति बताएं,hi,49,1,0.7779,1,0
+q_0169,What are the clerkage charges for ticket cancellation?,en,54,0,0.4407,1,0
+q_0170,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.4692,1,0
+q_0171,What does RAC status mean on my train ticket?,en,45,0,0.5855,1,0
+q_0172,पीएनआर में सीएनएफ और आरएसी का क्या मतलब है?,hi,43,0,0.4094,1,0
+q_0173,कृपया मेरे पीएनआर नंबर 2556469936 की स्थिति बताएं,hi,49,1,0.8951,1,0
+q_0174,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.3841,1,0
+q_0175,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.5126,1,0
+q_0176,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.59,1,0
+q_0177,What are the clerkage charges for ticket cancellation?,en,54,0,0.545,1,0
+q_0178,What is the refund rule on ticket cancellation?,en,47,0,0.5992,1,0
+q_0179,When does Tatkal booking open for AC coaches?,en,45,0,0.4989,1,0
+q_0180,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.6606,1,0
+q_0181,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.6083,1,0
+q_0182,What happens if my train is cancelled by the railway?,en,53,0,0.3298,1,0
+q_0183,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.5342,1,0
+q_0184,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.4057,1,0
+q_0185,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.2137,0,1
+q_0186,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.6427,1,0
+q_0187,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.0709,0,1
+q_0188,What is the refund rule on ticket cancellation?,en,47,0,0.6143,1,0
+q_0189,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.3323,1,0
+q_0190,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.477,1,0
+q_0191,What happens if my train is cancelled by the railway?,en,53,0,0.3611,1,0
+q_0192,What happens if my train is cancelled by the railway?,en,53,0,0.4731,1,0
+q_0193,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1184,0,1
+q_0194,When does Tatkal booking open for AC coaches?,en,45,0,0.5092,1,0
+q_0195,कृपया मेरे पीएनआर नंबर 7569846911 की स्थिति बताएं,hi,49,1,0.7294,1,0
+q_0196,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.4991,1,0
+q_0197,कृपया मेरे पीएनआर नंबर 7874167563 की स्थिति बताएं,hi,49,1,0.8583,1,0
+q_0198,What are the clerkage charges for ticket cancellation?,en,54,0,0.4579,1,0
+q_0199,कृपया मेरे पीएनआर नंबर 9977928884 की स्थिति बताएं,hi,49,1,0.8508,1,0
+q_0200,What happens if my train is cancelled by the railway?,en,53,0,0.6496,1,0
+q_0201,When is the reservation chart prepared before departure?,en,56,0,0.5589,1,0
+q_0202,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5143,1,0
+q_0203,What does RAC status mean on my train ticket?,en,45,0,0.5349,1,0
+q_0204,Please check my PNR status 2509853479,en,37,1,0.882,1,0
+q_0205,When is the reservation chart prepared before departure?,en,56,0,0.3473,1,0
+q_0206,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.0675,0,1
+q_0207,What is the refund rule on ticket cancellation?,en,47,0,0.6621,1,0
+q_0208,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.593,1,0
+q_0209,What happens if my train is cancelled by the railway?,en,53,0,0.6257,1,0
+q_0210,When does Tatkal booking open for AC coaches?,en,45,0,0.3386,1,0
+q_0211,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.385,1,0
+q_0212,Please check my PNR status 4139722758,en,37,1,0.7743,1,0
+q_0213,When does Tatkal booking open for AC coaches?,en,45,0,0.5882,1,0
+q_0214,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1605,0,1
+q_0215,What does RAC status mean on my train ticket?,en,45,0,0.5707,1,0
+q_0216,Please check my PNR status 3312416771,en,37,1,0.8977,1,0
+q_0217,When does Tatkal booking open for AC coaches?,en,45,0,0.6356,1,0
+q_0218,What does RAC status mean on my train ticket?,en,45,0,0.6349,1,0
+q_0219,When is the reservation chart prepared before departure?,en,56,0,0.3234,1,0
+q_0220,कृपया मेरे पीएनआर नंबर 4299709193 की स्थिति बताएं,hi,49,1,0.7229,1,0
+q_0221,What is the refund rule on ticket cancellation?,en,47,0,0.3598,1,0
+q_0222,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.5321,1,0
+q_0223,Please check my PNR status 3919062871,en,37,1,0.7311,1,0
+q_0224,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.4703,1,0
+q_0225,What are the clerkage charges for ticket cancellation?,en,54,0,0.6761,1,0
+q_0226,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.5539,1,0
+q_0227,When does Tatkal booking open for AC coaches?,en,45,0,0.4583,1,0
+q_0228,What are the trending stock market picks for today?,en,51,0,0.0598,0,1
+q_0229,When does Tatkal booking open for AC coaches?,en,45,0,0.509,1,0
+q_0230,What is the refund rule on ticket cancellation?,en,47,0,0.3754,1,0
+q_0231,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.3326,1,0
+q_0232,What happens if my train is cancelled by the railway?,en,53,0,0.4156,1,0
+q_0233,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.056,0,1
+q_0234,When does Tatkal booking open for AC coaches?,en,45,0,0.467,1,0
+q_0235,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5117,1,0
+q_0236,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.6264,1,0
+q_0237,When does Tatkal booking open for AC coaches?,en,45,0,0.5257,1,0
+q_0238,What is the refund rule on ticket cancellation?,en,47,0,0.6363,1,0
+q_0239,What does RAC status mean on my train ticket?,en,45,0,0.3777,1,0
+q_0240,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.5427,1,0
+q_0241,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.4876,1,0
+q_0242,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.5877,1,0
+q_0243,What are the clerkage charges for ticket cancellation?,en,54,0,0.4131,1,0
+q_0244,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.5475,1,0
+q_0245,What does RAC status mean on my train ticket?,en,45,0,0.3662,1,0
+q_0246,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.4431,1,0
+q_0247,Please check my PNR status 9363580739,en,37,1,0.7752,1,0
+q_0248,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.3409,1,0
+q_0249,What are the trending stock market picks for today?,en,51,0,0.1258,0,1
+q_0250,What are the clerkage charges for ticket cancellation?,en,54,0,0.328,1,0
+q_0251,When does Tatkal booking open for AC coaches?,en,45,0,0.3204,1,0
+q_0252,What does RAC status mean on my train ticket?,en,45,0,0.4825,1,0
+q_0253,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.6224,1,0
+q_0254,कृपया मेरे पीएनआर नंबर 5943756011 की स्थिति बताएं,hi,49,1,0.7078,1,0
+q_0255,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.4631,1,0
+q_0256,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5808,1,0
+q_0257,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.4527,1,0
+q_0258,How do I check PNR status on this platform?,en,43,0,0.3933,1,0
+q_0259,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1794,0,1
+q_0260,कृपया मेरे पीएनआर नंबर 7279660046 की स्थिति बताएं,hi,49,1,0.8204,1,0
+q_0261,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1449,0,1
+q_0262,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.4168,1,0
+q_0263,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.4873,1,0
+q_0264,How do I check PNR status on this platform?,en,43,0,0.425,1,0
+q_0265,What happens if my train is cancelled by the railway?,en,53,0,0.5807,1,0
+q_0266,कृपया मेरे पीएनआर नंबर 5906981023 की स्थिति बताएं,hi,49,1,0.7046,1,0
+q_0267,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.3235,1,0
+q_0268,Please check my PNR status 1354371485,en,37,1,0.7083,1,0
+q_0269,Please check my PNR status 8272212601,en,37,1,0.9001,1,0
+q_0270,कृपया मेरे पीएनआर नंबर 7849513480 की स्थिति बताएं,hi,49,1,0.9341,1,0
+q_0271,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1563,0,1
+q_0272,What does RAC status mean on my train ticket?,en,45,0,0.6421,1,0
+q_0273,What does RAC status mean on my train ticket?,en,45,0,0.3347,1,0
+q_0274,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.409,1,0
+q_0275,When is the reservation chart prepared before departure?,en,56,0,0.4893,1,0
+q_0276,What happens if my train is cancelled by the railway?,en,53,0,0.4994,1,0
+q_0277,What happens if my train is cancelled by the railway?,en,53,0,0.5153,1,0
+q_0278,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.346,1,0
+q_0279,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1736,0,1
+q_0280,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5964,1,0
+q_0281,What is the refund rule on ticket cancellation?,en,47,0,0.4779,1,0
+q_0282,When does Tatkal booking open for AC coaches?,en,45,0,0.6055,1,0
+q_0283,What are the clerkage charges for ticket cancellation?,en,54,0,0.3958,1,0
+q_0284,What does RAC status mean on my train ticket?,en,45,0,0.5994,1,0
+q_0285,How do I check PNR status on this platform?,en,43,0,0.6697,1,0
+q_0286,How do I check PNR status on this platform?,en,43,0,0.3551,1,0
+q_0287,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5335,1,0
+q_0288,When does Tatkal booking open for AC coaches?,en,45,0,0.6289,1,0
+q_0289,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.2149,0,1
+q_0290,कृपया मेरे पीएनआर नंबर 6716126287 की स्थिति बताएं,hi,49,1,0.8299,1,0
+q_0291,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5316,1,0
+q_0292,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3332,1,0
+q_0293,What is the refund rule on ticket cancellation?,en,47,0,0.5739,1,0
+q_0294,What does RAC status mean on my train ticket?,en,45,0,0.3603,1,0
+q_0295,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3386,1,0
+q_0296,पीएनआर में सीएनएफ और आरएसी का क्या मतलब है?,hi,43,0,0.4338,1,0
+q_0297,कृपया मेरे पीएनआर नंबर 3061142257 की स्थिति बताएं,hi,49,1,0.9413,1,0
+q_0298,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1486,0,1
+q_0299,How do I check PNR status on this platform?,en,43,0,0.3703,1,0
+q_0300,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1746,0,1

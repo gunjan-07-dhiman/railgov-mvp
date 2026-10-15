@@ -1,0 +1,301 @@
+query_id,query_text,language,char_length,has_pnr,similarity_score,is_grounded,is_escalated
+q_0001,Please check my PNR status 5300681291,en,37,1,0.8713,1,0
+q_0002,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.6004,1,0
+q_0003,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.6028,1,0
+q_0004,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.672,1,0
+q_0005,What happens if my train is cancelled by the railway?,en,53,0,0.3375,1,0
+q_0006,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1505,0,1
+q_0007,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1185,0,1
+q_0008,What are the trending stock market picks for today?,en,51,0,0.1927,0,1
+q_0009,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1966,0,1
+q_0010,Please check my PNR status 6256767702,en,37,1,0.7345,1,0
+q_0011,कृपया मेरे पीएनआर नंबर 4769208835 की स्थिति बताएं,hi,49,1,0.9083,1,0
+q_0012,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.4369,1,0
+q_0013,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1835,0,1
+q_0014,How do I apply for an international tourist visa?,en,49,0,0.1622,0,1
+q_0015,How do I apply for an international tourist visa?,en,49,0,0.0959,0,1
+q_0016,What are the clerkage charges for ticket cancellation?,en,54,0,0.3933,1,0
+q_0017,कृपया मेरे पीएनआर नंबर 9442197350 की स्थिति बताएं,hi,49,1,0.8518,1,0
+q_0018,कृपया मेरे पीएनआर नंबर 9315604365 की स्थिति बताएं,hi,49,1,0.7962,1,0
+q_0019,What is the current cricket match score?,en,40,0,0.0933,0,1
+q_0020,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.0991,0,1
+q_0021,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1391,0,1
+q_0022,What are the trending stock market picks for today?,en,51,0,0.2102,0,1
+q_0023,पीएनआर में सीएनएफ और आरएसी का क्या मतलब है?,hi,43,0,0.4995,1,0
+q_0024,How do I apply for an international tourist visa?,en,49,0,0.1127,0,1
+q_0025,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1164,0,1
+q_0026,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.3936,1,0
+q_0027,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.0627,0,1
+q_0028,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.5601,1,0
+q_0029,How do I apply for an international tourist visa?,en,49,0,0.1828,0,1
+q_0030,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.601,1,0
+q_0031,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.0958,0,1
+q_0032,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.5062,1,0
+q_0033,What happens if my train is cancelled by the railway?,en,53,0,0.6527,1,0
+q_0034,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1033,0,1
+q_0035,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.3506,1,0
+q_0036,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.2133,0,1
+q_0037,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.3863,1,0
+q_0038,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1755,0,1
+q_0039,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.6699,1,0
+q_0040,When does Tatkal booking open for AC coaches?,en,45,0,0.583,1,0
+q_0041,What are the trending stock market picks for today?,en,51,0,0.1215,0,1
+q_0042,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1224,0,1
+q_0043,What are the trending stock market picks for today?,en,51,0,0.1736,0,1
+q_0044,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1723,0,1
+q_0045,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1535,0,1
+q_0046,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.3652,1,0
+q_0047,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.4529,1,0
+q_0048,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.0502,0,1
+q_0049,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5375,1,0
+q_0050,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1167,0,1
+q_0051,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1312,0,1
+q_0052,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.2097,0,1
+q_0053,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1479,0,1
+q_0054,What is the refund rule on ticket cancellation?,en,47,0,0.4413,1,0
+q_0055,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.4093,1,0
+q_0056,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1218,0,1
+q_0057,When does Tatkal booking open for AC coaches?,en,45,0,0.3426,1,0
+q_0058,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.3743,1,0
+q_0059,How do I apply for an international tourist visa?,en,49,0,0.0734,0,1
+q_0060,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1205,0,1
+q_0061,What are the trending stock market picks for today?,en,51,0,0.1839,0,1
+q_0062,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1502,0,1
+q_0063,What is the current cricket match score?,en,40,0,0.1471,0,1
+q_0064,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.2108,0,1
+q_0065,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1031,0,1
+q_0066,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1327,0,1
+q_0067,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1564,0,1
+q_0068,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.202,0,1
+q_0069,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1939,0,1
+q_0070,How do I check PNR status on this platform?,en,43,0,0.5768,1,0
+q_0071,What happens if my train is cancelled by the railway?,en,53,0,0.5528,1,0
+q_0072,What happens if my train is cancelled by the railway?,en,53,0,0.5283,1,0
+q_0073,When does Tatkal booking open for AC coaches?,en,45,0,0.333,1,0
+q_0074,What happens if my train is cancelled by the railway?,en,53,0,0.4294,1,0
+q_0075,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.6043,1,0
+q_0076,What are the trending stock market picks for today?,en,51,0,0.0557,0,1
+q_0077,What are the clerkage charges for ticket cancellation?,en,54,0,0.6694,1,0
+q_0078,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.2056,0,1
+q_0079,What are the trending stock market picks for today?,en,51,0,0.1067,0,1
+q_0080,What is the current cricket match score?,en,40,0,0.067,0,1
+q_0081,When does Tatkal booking open for AC coaches?,en,45,0,0.5191,1,0
+q_0082,What happens if my train is cancelled by the railway?,en,53,0,0.3204,1,0
+q_0083,What does RAC status mean on my train ticket?,en,45,0,0.56,1,0
+q_0084,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.129,0,1
+q_0085,कृपया मेरे पीएनआर नंबर 5736644357 की स्थिति बताएं,hi,49,1,0.856,1,0
+q_0086,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1323,0,1
+q_0087,When is the reservation chart prepared before departure?,en,56,0,0.4529,1,0
+q_0088,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.2093,0,1
+q_0089,कृपया मेरे पीएनआर नंबर 3806683208 की स्थिति बताएं,hi,49,1,0.9011,1,0
+q_0090,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1108,0,1
+q_0091,Please check my PNR status 4602266684,en,37,1,0.828,1,0
+q_0092,What does RAC status mean on my train ticket?,en,45,0,0.591,1,0
+q_0093,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1615,0,1
+q_0094,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.0751,0,1
+q_0095,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.143,0,1
+q_0096,कृपया मेरे पीएनआर नंबर 8615758019 की स्थिति बताएं,hi,49,1,0.734,1,0
+q_0097,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1317,0,1
+q_0098,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.2134,0,1
+q_0099,What is the refund rule on ticket cancellation?,en,47,0,0.673,1,0
+q_0100,Please check my PNR status 3972255316,en,37,1,0.729,1,0
+q_0101,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1477,0,1
+q_0102,How do I check PNR status on this platform?,en,43,0,0.4423,1,0
+q_0103,Please check my PNR status 9244149112,en,37,1,0.9388,1,0
+q_0104,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.0641,0,1
+q_0105,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.3484,1,0
+q_0106,When is the reservation chart prepared before departure?,en,56,0,0.4157,1,0
+q_0107,When does Tatkal booking open for AC coaches?,en,45,0,0.6792,1,0
+q_0108,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.056,0,1
+q_0109,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.6406,1,0
+q_0110,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.4402,1,0
+q_0111,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1432,0,1
+q_0112,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.3583,1,0
+q_0113,How do I apply for an international tourist visa?,en,49,0,0.0672,0,1
+q_0114,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.3608,1,0
+q_0115,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.677,1,0
+q_0116,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1027,0,1
+q_0117,What are the clerkage charges for ticket cancellation?,en,54,0,0.5732,1,0
+q_0118,Please check my PNR status 9648264568,en,37,1,0.8381,1,0
+q_0119,What happens if my train is cancelled by the railway?,en,53,0,0.365,1,0
+q_0120,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1679,0,1
+q_0121,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.4355,1,0
+q_0122,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.388,1,0
+q_0123,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1791,0,1
+q_0124,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1908,0,1
+q_0125,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1068,0,1
+q_0126,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.4334,1,0
+q_0127,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1625,0,1
+q_0128,What does RAC status mean on my train ticket?,en,45,0,0.4987,1,0
+q_0129,When is the reservation chart prepared before departure?,en,56,0,0.3261,1,0
+q_0130,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.0959,0,1
+q_0131,When does Tatkal booking open for AC coaches?,en,45,0,0.6773,1,0
+q_0132,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.147,0,1
+q_0133,What are the trending stock market picks for today?,en,51,0,0.1618,0,1
+q_0134,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.6529,1,0
+q_0135,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.127,0,1
+q_0136,How do I apply for an international tourist visa?,en,49,0,0.0507,0,1
+q_0137,How do I apply for an international tourist visa?,en,49,0,0.1244,0,1
+q_0138,What happens if my train is cancelled by the railway?,en,53,0,0.5369,1,0
+q_0139,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.4706,1,0
+q_0140,What does RAC status mean on my train ticket?,en,45,0,0.4472,1,0
+q_0141,कृपया मेरे पीएनआर नंबर 2468496213 की स्थिति बताएं,hi,49,1,0.8897,1,0
+q_0142,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.182,0,1
+q_0143,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.2129,0,1
+q_0144,What are the trending stock market picks for today?,en,51,0,0.1157,0,1
+q_0145,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.2152,0,1
+q_0146,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1468,0,1
+q_0147,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1988,0,1
+q_0148,What happens if my train is cancelled by the railway?,en,53,0,0.4642,1,0
+q_0149,How do I apply for an international tourist visa?,en,49,0,0.1194,0,1
+q_0150,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.0947,0,1
+q_0151,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1195,0,1
+q_0152,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1352,0,1
+q_0153,When is the reservation chart prepared before departure?,en,56,0,0.597,1,0
+q_0154,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.2182,0,1
+q_0155,Please check my PNR status 2047628294,en,37,1,0.7718,1,0
+q_0156,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1261,0,1
+q_0157,How do I apply for an international tourist visa?,en,49,0,0.1511,0,1
+q_0158,When is the reservation chart prepared before departure?,en,56,0,0.6348,1,0
+q_0159,When does Tatkal booking open for AC coaches?,en,45,0,0.6735,1,0
+q_0160,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.3409,1,0
+q_0161,Please check my PNR status 5474193190,en,37,1,0.7418,1,0
+q_0162,How do I check PNR status on this platform?,en,43,0,0.4713,1,0
+q_0163,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.5436,1,0
+q_0164,कृपया मेरे पीएनआर नंबर 7407481844 की स्थिति बताएं,hi,49,1,0.8968,1,0
+q_0165,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.2197,0,1
+q_0166,What are the trending stock market picks for today?,en,51,0,0.0978,0,1
+q_0167,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1522,0,1
+q_0168,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.0729,0,1
+q_0169,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.0781,0,1
+q_0170,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1185,0,1
+q_0171,How do I check PNR status on this platform?,en,43,0,0.6158,1,0
+q_0172,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.3983,1,0
+q_0173,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1497,0,1
+q_0174,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1858,0,1
+q_0175,What does RAC status mean on my train ticket?,en,45,0,0.4331,1,0
+q_0176,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.2144,0,1
+q_0177,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.2134,0,1
+q_0178,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.22,0,1
+q_0179,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.4217,1,0
+q_0180,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.6328,1,0
+q_0181,What is the refund rule on ticket cancellation?,en,47,0,0.6351,1,0
+q_0182,What is the refund rule on ticket cancellation?,en,47,0,0.3576,1,0
+q_0183,कृपया मेरे पीएनआर नंबर 9585425035 की स्थिति बताएं,hi,49,1,0.8637,1,0
+q_0184,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1325,0,1
+q_0185,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1591,0,1
+q_0186,What does RAC status mean on my train ticket?,en,45,0,0.5388,1,0
+q_0187,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1948,0,1
+q_0188,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.0796,0,1
+q_0189,आरएसी और वेटिंग टिकट में क्या अंतर होता है?,hi,43,0,0.6509,1,0
+q_0190,What are the trending stock market picks for today?,en,51,0,0.116,0,1
+q_0191,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1977,0,1
+q_0192,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1144,0,1
+q_0193,How do I apply for an international tourist visa?,en,49,0,0.1333,0,1
+q_0194,Please check my PNR status 3195920215,en,37,1,0.887,1,0
+q_0195,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1893,0,1
+q_0196,पीएनआर में सीएनएफ और आरएसी का क्या मतलब है?,hi,43,0,0.5358,1,0
+q_0197,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.1194,0,1
+q_0198,What are the trending stock market picks for today?,en,51,0,0.1936,0,1
+q_0199,How do I apply for an international tourist visa?,en,49,0,0.0916,0,1
+q_0200,What is the current cricket match score?,en,40,0,0.1446,0,1
+q_0201,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1392,0,1
+q_0202,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1343,0,1
+q_0203,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.0708,0,1
+q_0204,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.4636,1,0
+q_0205,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.171,0,1
+q_0206,How do I apply for an international tourist visa?,en,49,0,0.2176,0,1
+q_0207,Please check my PNR status 6918002064,en,37,1,0.887,1,0
+q_0208,What happens if my train is cancelled by the railway?,en,53,0,0.5879,1,0
+q_0209,What does RAC status mean on my train ticket?,en,45,0,0.4732,1,0
+q_0210,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1358,0,1
+q_0211,रेलवे द्वारा ट्रेन रद्द होने पर क्या पूरा रिफंड मिलता है?,hi,57,0,0.5557,1,0
+q_0212,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1434,0,1
+q_0213,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.2129,0,1
+q_0214,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.085,0,1
+q_0215,पनीर टिक्का बनाने की आसान विधि क्या है?,hi,39,0,0.2141,0,1
+q_0216,When is the reservation chart prepared before departure?,en,56,0,0.6505,1,0
+q_0217,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.4644,1,0
+q_0218,What is the refund rule on ticket cancellation?,en,47,0,0.6119,1,0
+q_0219,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5882,1,0
+q_0220,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.0943,0,1
+q_0221,When does Tatkal booking open for AC coaches?,en,45,0,0.5496,1,0
+q_0222,What are the clerkage charges for ticket cancellation?,en,54,0,0.5904,1,0
+q_0223,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.353,1,0
+q_0224,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1255,0,1
+q_0225,पासपोर्ट रिन्यूअल के लिए आवश्यक दस्तावेज क्या हैं?,hi,50,0,0.1387,0,1
+q_0226,When is the reservation chart prepared before departure?,en,56,0,0.4161,1,0
+q_0227,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.0902,0,1
+q_0228,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.6484,1,0
+q_0229,Please check my PNR status 4352362533,en,37,1,0.8163,1,0
+q_0230,How do I check PNR status on this platform?,en,43,0,0.5591,1,0
+q_0231,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1576,0,1
+q_0232,How do I apply for an international tourist visa?,en,49,0,0.1998,0,1
+q_0233,How do I check PNR status on this platform?,en,43,0,0.5258,1,0
+q_0234,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.6264,1,0
+q_0235,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.0797,0,1
+q_0236,How do I apply for an international tourist visa?,en,49,0,0.1536,0,1
+q_0237,What are the trending stock market picks for today?,en,51,0,0.2112,0,1
+q_0238,How do I apply for an international tourist visa?,en,49,0,0.0693,0,1
+q_0239,What are the trending stock market picks for today?,en,51,0,0.0687,0,1
+q_0240,When does Tatkal booking open for AC coaches?,en,45,0,0.3441,1,0
+q_0241,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1861,0,1
+q_0242,कृपया मेरे पीएनआर नंबर 1814784334 की स्थिति बताएं,hi,49,1,0.7254,1,0
+q_0243,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.0865,0,1
+q_0244,Please check my PNR status 3155245302,en,37,1,0.7257,1,0
+q_0245,What are the trending stock market picks for today?,en,51,0,0.1634,0,1
+q_0246,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1085,0,1
+q_0247,How do I check PNR status on this platform?,en,43,0,0.4201,1,0
+q_0248,How do I apply for an international tourist visa?,en,49,0,0.0788,0,1
+q_0249,What is the current cricket match score?,en,40,0,0.1503,0,1
+q_0250,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1515,0,1
+q_0251,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.5196,1,0
+q_0252,What is the current cricket match score?,en,40,0,0.2094,0,1
+q_0253,What are the clerkage charges for ticket cancellation?,en,54,0,0.3764,1,0
+q_0254,When is the reservation chart prepared before departure?,en,56,0,0.5479,1,0
+q_0255,What is the current cricket match score?,en,40,0,0.1625,0,1
+q_0256,How do I book a domestic flight from Delhi to Mumbai?,en,53,0,0.1292,0,1
+q_0257,चार्ट बनने के बाद टिकट का स्टेटस कैसे चेक करें?,hi,47,0,0.3217,1,0
+q_0258,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1469,0,1
+q_0259,How do I apply for an international tourist visa?,en,49,0,0.1456,0,1
+q_0260,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1022,0,1
+q_0261,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.6754,1,0
+q_0262,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1596,0,1
+q_0263,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.5766,1,0
+q_0264,What is the current cricket match score?,en,40,0,0.1392,0,1
+q_0265,What is the current cricket match score?,en,40,0,0.1008,0,1
+q_0266,How do I check PNR status on this platform?,en,43,0,0.4612,1,0
+q_0267,What is the current cricket match score?,en,40,0,0.0665,0,1
+q_0268,वेटलिस्ट टिकट रद्द करने पर क्लर्केज चार्ज कितना लगता है?,hi,56,0,0.3647,1,0
+q_0269,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.155,0,1
+q_0270,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.0988,0,1
+q_0271,What happens if my train is cancelled by the railway?,en,53,0,0.4871,1,0
+q_0272,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.1338,0,1
+q_0273,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.6104,1,0
+q_0274,What is the current cricket match score?,en,40,0,0.0913,0,1
+q_0275,How do I apply for an international tourist visa?,en,49,0,0.1988,0,1
+q_0276,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.0903,0,1
+q_0277,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.1866,0,1
+q_0278,Please check my PNR status 1392573651,en,37,1,0.7143,1,0
+q_0279,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1409,0,1
+q_0280,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.4829,1,0
+q_0281,What are the clerkage charges for ticket cancellation?,en,54,0,0.4287,1,0
+q_0282,कन्फर्म टिकट कैंसिल करने पर कितना रिफंड मिलता है?,hi,49,0,0.5003,1,0
+q_0283,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.0669,0,1
+q_0284,पीएनआर में सीएनएफ और आरएसी का क्या मतलब है?,hi,43,0,0.3828,1,0
+q_0285,ऑनलाइन ड्राइविंग लाइसेंस का फॉर्म कैसे भरें?,hi,44,0,0.1029,0,1
+q_0286,What does RAC status mean on my train ticket?,en,45,0,0.6527,1,0
+q_0287,क्या वेटलिस्ट ई-टिकट पर ट्रेन में यात्रा कर सकते हैं?,hi,53,0,0.6229,1,0
+q_0288,तत्काल टिकट बुकिंग किस समय शुरू होती है?,hi,40,0,0.5838,1,0
+q_0289,What is the current cricket match score?,en,40,0,0.2165,0,1
+q_0290,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.1834,0,1
+q_0291,How do I apply for an international tourist visa?,en,49,0,0.0743,0,1
+q_0292,क्या मुझे स्टेशन पर होटल का कमरा बुक करना है?,hi,45,0,0.0738,0,1
+q_0293,Can I order hot pizza delivered to my seat at the station?,en,58,0,0.088,0,1
+q_0294,आज के शेयर बाजार का मुख्य समाचार बताएं।,hi,39,0,0.1756,0,1
+q_0295,What are the trending stock market picks for today?,en,51,0,0.1296,0,1
+q_0296,What are the trending stock market picks for today?,en,51,0,0.1181,0,1
+q_0297,Tell me a chocolate cake recipe with eggless ingredients.,en,57,0,0.0808,0,1
+q_0298,Can a passenger travel on a waitlisted e-ticket?,en,48,0,0.4355,1,0
+q_0299,What is the current cricket match score?,en,40,0,0.2047,0,1
+q_0300,When does Tatkal booking open for AC coaches?,en,45,0,0.544,1,0

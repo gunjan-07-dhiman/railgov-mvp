@@ -45,8 +45,8 @@ def main():
 
     # Page Header in Barlow Condensed with saffron underline
     render_page_header(
-        title="DYNAMIC FARE MOVEMENT & DEMAND SURGE",
-        subtitle="Predictive tariff ranges, demand surge forecasting, best booking horizon scan, and quoted price anomaly verification.",
+        title="DYNAMIC FARE PREDICTOR",
+        subtitle="Predicts when ticket prices or Tatkal demand will surge and identifies the best purchase window.",
     )
 
     col_form, col_space, col_result = st.columns([1.15, 0.05, 1.15])

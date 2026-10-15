@@ -20,6 +20,22 @@ MODELS_DIR: Path = BASE_DIR / "models"
 REGISTRY_PATH: Path = MODELS_DIR / "registry.json"
 AUDIT_DB_PATH: Path = MODELS_DIR / "audit.db"
 
+# Third-Party Live Rail API Configuration (RapidAPI)
+import os
+
+def _load_env_vars():
+    env_file = BASE_DIR / ".env"
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+_load_env_vars()
+RAPIDAPI_KEY: str = os.getenv("RAPIDAPI_KEY") or os.getenv("X_RAPIDAPI_KEY") or ""
+RAPIDAPI_HOST: str = os.getenv("RAPIDAPI_HOST") or os.getenv("X_RAPIDAPI_HOST") or "irctc1.p.rapidapi.com"
+
 # Data schema and feature sets
 TARGET_COLUMN: str = "confirmed"
 
@@ -189,62 +205,77 @@ MAX_FRAUD_RECALL_DROP: float = 0.08       # Flag degradation if holdout recall d
 FRAUD_BASELINE_PATH: Path = DATA_DIR / "fraud_baseline.csv"
 FRAUD_DRIFTED_PATH: Path = DATA_DIR / "fraud_drifted.csv"
 
+# Support Chatbot Module Constants
+FAQ_DIR: Path = BASE_DIR / "docs" / "faq"
+MOCK_PNR_PATH: Path = DATA_DIR / "mock_pnr.csv"
+CHAT_EVAL_PATH: Path = DATA_DIR / "chat_eval.csv"
+CHAT_BASELINE_PATH: Path = DATA_DIR / "chat_baseline.csv"
+CHAT_DRIFTED_PATH: Path = DATA_DIR / "chat_drifted.csv"
+
+# Grounding threshold determined via tuning split calibration
+CHAT_SIMILARITY_THRESHOLD: float = 0.20   # Queries with cosine sim < 0.20 trigger "not sure" response & escalation
+MIN_CHAT_GROUNDED_RATE: float = 0.65      # Alert if grounded response rate drops below 65%
+
+CHAT_FEATURE_COLUMNS: List[str] = ["language", "char_length", "has_pnr", "similarity_score", "is_grounded"]
+CHAT_CATEGORICAL_FEATURES: List[str] = ["language", "has_pnr"]
+CHAT_NUMERIC_FEATURES: List[str] = ["char_length", "similarity_score", "is_grounded"]
+CHAT_TARGET_COLUMN: str = "is_grounded"
+
 # Centralized Passenger Module Catalog (Single Source of Truth for Nav & Cards)
+# Exactly matching the 6 Core AI Features - All 6 Built & Active
 MODULE_CATALOG: List[dict] = [
     {
         "id": "ticket_confirmation",
-        "title": "Ticket Confirmation Predictor",
-        "short_title": "Ticket Confirmation",
+        "num": 1,
+        "title": "Ticket Confirm Predictor",
+        "short_title": "Ticket Confirm Predictor",
         "page": "pages/ticket_confirmation.py",
-        "desc": "Waitlist & RAC confirmation odds with TreeSHAP explainability drivers.",
+        "desc": "Tells the passenger: 'Your WL 12 has an 82% chance of confirming'.",
+        "built": True,
+    },
+    {
+        "id": "recommender",
+        "num": 2,
+        "title": "Train Recommender",
+        "short_title": "Train Recommender",
+        "page": "pages/recommender.py",
+        "desc": "Suggests the best train based on what you care about (fastest, cheapest, cleanest).",
         "built": True,
     },
     {
         "id": "delay",
-        "title": "Train Delay & Platform Crowd",
-        "short_title": "Train Delay & Platform",
+        "num": 3,
+        "title": "Delay Predictor",
+        "short_title": "Delay Predictor",
         "page": "pages/delay.py",
-        "desc": "Regression delay minutes range, station crowd classifier, and proactive arrival advice.",
+        "desc": "Tells the passenger: 'This train usually gets delayed by 2 hours at Kanpur due to winter fog'.",
         "built": True,
     },
     {
         "id": "fare",
-        "title": "Dynamic Fare Movement",
-        "short_title": "Fare & Demand Surge",
+        "num": 4,
+        "title": "Dynamic Fare Predictor",
+        "short_title": "Dynamic Fare Predictor",
         "page": "pages/fare.py",
-        "desc": "Demand surge tracking, best purchase horizon scan, and price anomaly detection.",
-        "built": True,
-    },
-    {
-        "id": "fraud",
-        "title": "Booking Fraud Shield",
-        "short_title": "Fraud Shield",
-        "page": "pages/fraud.py",
-        "desc": "High-frequency automated bot detection and risk classification.",
+        "desc": "Predicts when ticket prices or Tatkal demand will surge.",
         "built": True,
     },
     {
         "id": "support",
-        "title": "Support Chatbot",
-        "short_title": "Support Chatbot",
-        "page": None,
-        "desc": "Grounded multilingual travel guidance and Indian script detection.",
-        "built": False,
+        "num": 5,
+        "title": "24/7 AI Travel Assistant & Planner",
+        "short_title": "24/7 AI Assistant & Planner",
+        "page": "pages/support_chat.py",
+        "desc": "Ask travel plans ('Pune to Delhi under ₹1500'), live PNR status, and refund rules in English & हिंदी.",
+        "built": True,
     },
     {
-        "id": "recommender",
-        "title": "Train Recommender",
-        "short_title": "Train Recommender",
-        "page": None,
-        "desc": "Fair alternate train route suggestions with audit logs.",
-        "built": False,
-    },
-    {
-        "id": "planner",
-        "title": "Journey Planner Agent",
-        "short_title": "Journey Planner Agent",
-        "page": None,
-        "desc": "Autonomous multi-leg journey coordination with user approval gates.",
-        "built": False,
+        "id": "fraud",
+        "num": 6,
+        "title": "Anti-Cheat / Anti-Bot System",
+        "short_title": "Anti-Cheat / Anti-Bot",
+        "page": "pages/fraud.py",
+        "desc": "Catches scalpers and automated bots booking all the Tatkal tickets in 5 seconds.",
+        "built": True,
     },
 ]
