@@ -128,21 +128,22 @@ def generate_bookings(n: int = 5000, drifted: bool = False, seed: int = 42) -> p
             + noise
         )
     else:
-        # Drifted: Severe concept drift. People rarely cancel tickets during festival rush.
-        # Days before journey has much lower advantage, high WL penalties are much steeper.
-        status_boost = np.where(booking_statuses == "RAC", 1.4, 0.0)
-        wl_penalty = np.where(
-            booking_statuses == "RAC",
-            -0.045 * wl_positions,
-            -0.055 * wl_positions,
-        )
-        days_benefit = 0.008 * days_before_journey
-        festival_penalty = -1.80 * is_festival_season
-        route_penalty = -1.90 * route_popularity
-        noise = rng.normal(loc=0.0, scale=0.70, size=n)
+        # Drifted: Concept drift under peak festival rush.
+        # 1. RAC boost plummets: confirmed passengers do not cancel, so RAC berths rarely clear.
+        status_boost = np.where(booking_statuses == "RAC", 0.20, 0.0)
+        # 2. Inverted class cancellation dynamics: Sleeper and 3A cancellations freeze,
+        # while corporate/VIP cancellations occur more in 1A and 2A.
+        drifted_class_multipliers = {"SL": -0.70, "3A": -0.30, "CC": 0.00, "2A": 0.50, "1A": 0.85}
+        class_contrib = np.array([drifted_class_multipliers[c] for c in travel_classes])
+        # 3. Booking window decoupling: booking early provides little advantage when queues are locked
+        days_benefit = 0.002 * days_before_journey + 0.40 * (days_before_journey < 5)
+        wl_penalty = -0.028 * wl_positions
+        festival_penalty = -1.30 * is_festival_season
+        route_penalty = -1.20 * route_popularity
+        noise = rng.normal(loc=0.0, scale=1.35, size=n)
 
         logit = (
-            1.80
+            0.20
             + status_boost
             + wl_penalty
             + days_benefit
