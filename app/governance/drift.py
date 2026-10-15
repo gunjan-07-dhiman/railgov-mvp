@@ -27,12 +27,7 @@ def compute_numeric_psi(
     bins: int = PSI_NUM_BINS,
     epsilon: float = 1e-4,
 ) -> float:
-    """
-    Compute Population Stability Index for continuous numeric features.
-
-    Formula:
-        PSI = sum((Current_i - Reference_i) * ln(Current_i / Reference_i))
-    """
+    """Compute Population Stability Index for continuous numeric features."""
     ref_clean = np.asarray(reference, dtype=float)
     cur_clean = np.asarray(current, dtype=float)
     ref_clean = ref_clean[~np.isnan(ref_clean)]
@@ -41,22 +36,17 @@ def compute_numeric_psi(
     if len(ref_clean) == 0 or len(cur_clean) == 0:
         return 0.0
 
-    # Determine bin edges from reference distribution quantiles
     quantiles = np.linspace(0.0, 1.0, bins + 1)
     bin_edges = np.unique(np.quantile(ref_clean, quantiles))
-
-    # If distribution is constant or unique values < bins, fall back to linear spacing
     if len(bin_edges) < 3:
         bin_edges = np.linspace(ref_clean.min() - 1e-3, ref_clean.max() + 1e-3, bins + 1)
 
     bin_edges[0] = -np.inf
     bin_edges[-1] = np.inf
 
-    # Calculate bin frequency counts
     ref_counts, _ = np.histogram(ref_clean, bins=bin_edges)
     cur_counts, _ = np.histogram(cur_clean, bins=bin_edges)
 
-    # Convert to probabilities with smoothing epsilon
     ref_pct = (ref_counts + epsilon) / (len(ref_clean) + len(ref_counts) * epsilon)
     cur_pct = (cur_counts + epsilon) / (len(cur_clean) + len(cur_counts) * epsilon)
 
@@ -69,9 +59,7 @@ def compute_categorical_psi(
     current: Union[List, pd.Series],
     epsilon: float = 1e-4,
 ) -> float:
-    """
-    Compute Population Stability Index for categorical features across shared categories.
-    """
+    """Compute Population Stability Index for categorical features across shared categories."""
     ref_s = pd.Series(reference).dropna().astype(str)
     cur_s = pd.Series(current).dropna().astype(str)
 
@@ -80,7 +68,6 @@ def compute_categorical_psi(
 
     all_categories = sorted(list(set(ref_s.unique()) | set(cur_s.unique())))
     k = len(all_categories)
-
     ref_counts = ref_s.value_counts()
     cur_counts = cur_s.value_counts()
 
@@ -98,12 +85,7 @@ def compute_ks_test(
     reference: Union[np.ndarray, pd.Series],
     current: Union[np.ndarray, pd.Series],
 ) -> Tuple[float, float]:
-    """
-    Compute two-sample Kolmogorov-Smirnov test for continuous numeric distribution shift.
-
-    Returns:
-        (ks_statistic, p_value)
-    """
+    """Compute two-sample Kolmogorov-Smirnov test for continuous numeric distribution shift."""
     ref_clean = np.asarray(reference, dtype=float)
     cur_clean = np.asarray(current, dtype=float)
     ref_clean = ref_clean[~np.isnan(ref_clean)]
@@ -119,33 +101,29 @@ def compute_ks_test(
 def detect_drift(
     reference_df: pd.DataFrame,
     current_df: pd.DataFrame,
+    feature_columns: Optional[List[str]] = None,
+    categorical_features: Optional[List[str]] = None,
+    numeric_features: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
-    """
-    Execute full statistical drift analysis comparing current batch to baseline reference.
+    """Execute statistical drift analysis comparing current batch to baseline reference."""
+    cols = feature_columns if feature_columns is not None else FEATURE_COLUMNS
+    cats = categorical_features if categorical_features is not None else CATEGORICAL_FEATURES
 
-    Args:
-        reference_df: Reference baseline DataFrame.
-        current_df: Production or candidate batch DataFrame.
-
-    Returns:
-        Structured drift report including per-feature PSI, KS p-values, severity, and flags.
-    """
     feature_metrics: Dict[str, Dict[str, Any]] = {}
     critical_features: List[str] = []
     warning_features: List[str] = []
 
-    for col in FEATURE_COLUMNS:
+    for col in cols:
         if col not in reference_df.columns or col not in current_df.columns:
             continue
 
-        if col in CATEGORICAL_FEATURES:
+        if col in cats:
             psi = compute_categorical_psi(reference_df[col], current_df[col])
             ks_stat, ks_p = None, None
         else:
             psi = compute_numeric_psi(reference_df[col], current_df[col])
             ks_stat, ks_p = compute_ks_test(reference_df[col], current_df[col])
 
-        # Severity categorization
         if psi >= PSI_CRITICAL_THRESHOLD:
             severity = "critical"
             critical_features.append(col)
@@ -161,10 +139,10 @@ def detect_drift(
             "ks_pvalue": float(ks_p) if ks_p is not None else None,
             "ks_drift_flag": bool(ks_p < KS_PVALUE_ALPHA) if ks_p is not None else False,
             "severity": severity,
-            "feature_type": "categorical" if col in CATEGORICAL_FEATURES else "numeric",
+            "feature_type": "categorical" if col in cats else "numeric",
         }
 
-    # Overall system drift decision
+    # System-level drift decision
     if len(critical_features) > 0:
         overall_severity = "critical"
         overall_drift_detected = True
@@ -178,13 +156,10 @@ def detect_drift(
         overall_severity = "none"
         overall_drift_detected = False
 
-    # Top drifted features ranked by PSI
-    ranked_drift = sorted(
-        feature_metrics.items(), key=lambda item: item[1]["psi"], reverse=True
-    )
+    ranked = sorted(feature_metrics.items(), key=lambda item: item[1]["psi"], reverse=True)
     top_drifted = [
         {"feature": k, "psi": v["psi"], "severity": v["severity"]}
-        for k, v in ranked_drift
+        for k, v in ranked
         if v["severity"] != "none"
     ]
 

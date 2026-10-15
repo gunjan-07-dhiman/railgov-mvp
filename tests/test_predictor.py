@@ -12,7 +12,7 @@ import pandas as pd
 import pytest
 
 from app.config import DATA_DIR, MODELS_DIR
-from app.predictor import load_model, predict, train
+from app.modules.ticket_predictor import load_model, predict, train
 
 
 @pytest.fixture(scope="module")
@@ -27,7 +27,12 @@ def trained_model():
     yield bundle, meta, res
 
     # Clean up test artifacts
-    for f in [MODELS_DIR / "test_v1.joblib", MODELS_DIR / "test_v1_meta.joblib"]:
+    for f in [
+        MODELS_DIR / "ticket_predictor_test_v1.joblib",
+        MODELS_DIR / "ticket_predictor_test_v1_meta.joblib",
+        MODELS_DIR / "test_v1.joblib",
+        MODELS_DIR / "test_v1_meta.joblib",
+    ]:
         if f.exists():
             f.unlink()
 

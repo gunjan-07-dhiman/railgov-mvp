@@ -2,8 +2,7 @@
 app/governance/retrain.py
 Autonomous Model Retraining & Validation Pipeline for RailGov MVP.
 Orchestrates candidate model retraining upon drift or performance alerts.
-Enforces holdout data isolation: candidate models are evaluated on recent holdouts
-that are strictly excluded from their training set.
+Enforces holdout data isolation across governed model services.
 """
 
 from pathlib import Path
@@ -11,20 +10,15 @@ from typing import Any, Dict, Optional
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from app.config import (
-    DATA_DIR,
-    RETRAIN_PROMOTION_TOLERANCE,
-    TARGET_COLUMN,
-)
+from app.base import ModelService, get_service
+from app.config import RETRAIN_PROMOTION_TOLERANCE
 from app.governance.audit import log_event
-from app.governance.monitor import evaluate_performance
-from app.governance.registry import get_active, list_versions, promote, register
-from app.predictor import load_model, train
+from app.governance.registry import get_active, list_versions, register
 
 
-def _determine_next_version() -> str:
-    """Determine the next sequential version tag (e.g. v2, v3)."""
-    versions = list_versions()
+def _determine_next_version(model_name: str, custom_path: Optional[Path] = None) -> str:
+    """Determine the next sequential version tag for a model (e.g. v2, v3)."""
+    versions = list_versions(model_name=model_name, custom_path=custom_path)
     max_num = 0
     for v in versions:
         ver_str = v.get("version", "")
@@ -37,43 +31,24 @@ def retrain_if_needed(
     trigger_reason: str,
     current_df: pd.DataFrame,
     baseline_df: Optional[pd.DataFrame] = None,
+    service: Optional[ModelService] = None,
     custom_registry_path: Optional[Path] = None,
     custom_db_path: Optional[Path] = None,
 ) -> Dict[str, Any]:
-    """
-    Execute autonomous retraining pipeline.
+    """Execute autonomous retraining pipeline with unseen holdout isolation."""
+    if service is None:
+        service = get_service("ticket_predictor")
 
-    Workflow:
-    1. Splits newly labelled current data into training (70%) and validation holdout (30%).
-       Constraint: The 30% holdout is strictly excluded from candidate training.
-    2. Combines baseline operations with the 70% current data slice.
-    3. Trains candidate model version (e.g. v2).
-    4. Evaluates active vs. candidate models on the unseen 30% holdout.
-    5. Promotes candidate if holdout AUC >= active AUC - tolerance; otherwise marks rejected.
-    6. Logs all audit decisions.
+    model_name = service.model_name
+    target_col = service.target_column
 
-    Args:
-        trigger_reason: Explanation of what caused retraining (e.g. "critical drift in festival season").
-        current_df: Labelled recent production data.
-        baseline_df: Optional baseline data; loaded from data/baseline.csv if None.
-        custom_registry_path: Optional registry path for testing.
-        custom_db_path: Optional audit db path for testing.
-
-    Returns:
-        Retraining report dictionary.
-    """
     if baseline_df is None:
-        baseline_path = DATA_DIR / "baseline.csv"
-        if not baseline_path.exists():
-            raise FileNotFoundError(f"Baseline data not found at {baseline_path}")
-        baseline_df = pd.read_csv(baseline_path)
+        baseline_df = service.load_baseline_df()
 
-    active_rec = get_active(custom_path=custom_registry_path)
+    active_rec = get_active(model_name=model_name, custom_path=custom_registry_path)
     active_version = active_rec["version"] if active_rec else None
+    candidate_version = _determine_next_version(model_name, custom_path=custom_registry_path)
 
-    candidate_version = _determine_next_version()
-
-    # Log retraining started
     log_event(
         event_type="RETRAIN_STARTED",
         actor="retrain_pipeline",
@@ -84,33 +59,36 @@ def retrain_if_needed(
             "new_samples_count": len(current_df),
         },
         model_version=active_version,
+        model_name=model_name,
         db_path=custom_db_path,
     )
 
-    # 1. Split recent data into training (70%) and holdout (30%)
-    # This ensures the validation holdout is strictly unseen by the candidate model
+    # 1. Split recent data: 70% train, 30% unseen holdout
+    stratify_col = None
+    if target_col in current_df.columns:
+        counts = current_df[target_col].value_counts()
+        if len(counts) >= 2 and counts.min() >= 2:
+            stratify_col = current_df[target_col]
+
     current_train, current_holdout = train_test_split(
-        current_df,
-        test_size=0.30,
-        random_state=42,
-        stratify=current_df[TARGET_COLUMN],
+        current_df, test_size=0.30, random_state=42, stratify=stratify_col
     )
 
     # 2. Combine baseline data with recent training slice
     combined_train = pd.concat([baseline_df, current_train], ignore_index=True)
 
     # 3. Train candidate model
-    train_res = train(combined_train, version=candidate_version)
+    service.train(combined_train, version=candidate_version)
 
-    # 4. Evaluate candidate model on recent unseen holdout
-    candidate_bundle, _ = load_model(candidate_version)
-    candidate_holdout_eval = evaluate_performance(candidate_bundle, current_holdout)
+    # 4. Evaluate candidate on unseen holdout
+    candidate_bundle, _ = service.load_model(candidate_version)
+    candidate_holdout_eval = service.evaluate_performance(candidate_bundle, current_holdout)
     candidate_auc = candidate_holdout_eval["metrics"]["auc"]
 
-    # 5. Evaluate current active model on the same unseen holdout (if active exists)
+    # 5. Evaluate current active model on same holdout
     if active_version:
-        active_bundle, _ = load_model(active_version)
-        active_holdout_eval = evaluate_performance(active_bundle, current_holdout)
+        active_bundle, _ = service.load_model(active_version)
+        active_holdout_eval = service.evaluate_performance(active_bundle, current_holdout)
         active_auc = active_holdout_eval["metrics"]["auc"]
     else:
         active_auc = 0.0
@@ -126,6 +104,7 @@ def retrain_if_needed(
             metrics=candidate_holdout_eval["metrics"],
             training_data_desc=f"Baseline + 70% current data ({trigger_reason})",
             status="active",
+            model_name=model_name,
             custom_path=custom_registry_path,
         )
         log_event(
@@ -140,19 +119,18 @@ def retrain_if_needed(
                 "holdout_samples": len(current_holdout),
             },
             model_version=candidate_version,
+            model_name=model_name,
             db_path=custom_db_path,
         )
         action = "promoted"
-        reason = (
-            f"Candidate model {candidate_version} holdout AUC ({candidate_auc}) "
-            f"met or exceeded active {active_version} AUC ({active_auc}) on recent unseen holdout."
-        )
+        reason = f"Candidate model {candidate_version} holdout AUC ({candidate_auc}) met target (>= {min_required_auc})."
     else:
         register(
             version=candidate_version,
             metrics=candidate_holdout_eval["metrics"],
             training_data_desc=f"Baseline + 70% current data ({trigger_reason})",
             status="rejected",
+            model_name=model_name,
             custom_path=custom_registry_path,
         )
         log_event(
@@ -163,17 +141,13 @@ def retrain_if_needed(
                 "active_version": active_version,
                 "candidate_holdout_auc": candidate_auc,
                 "active_holdout_auc": active_auc,
-                "tolerance": RETRAIN_PROMOTION_TOLERANCE,
-                "holdout_samples": len(current_holdout),
             },
             model_version=active_version,
+            model_name=model_name,
             db_path=custom_db_path,
         )
         action = "rejected"
-        reason = (
-            f"Candidate model {candidate_version} holdout AUC ({candidate_auc}) "
-            f"did not meet required threshold ({min_required_auc}) compared to active model ({active_auc})."
-        )
+        reason = f"Candidate model {candidate_version} holdout AUC ({candidate_auc}) below threshold ({min_required_auc})."
 
     return {
         "action": action,

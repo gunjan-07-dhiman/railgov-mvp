@@ -1,7 +1,7 @@
 """
 app/governance/registry.py
-Model Registry for RailGov MVP.
-Maintains a versioned JSON catalog of models with promotion, rejection,
+Multi-Model Registry for RailGov MVP.
+Maintains versioned JSON catalogs of models with promotion, rejection,
 and rollback capabilities at models/registry.json.
 """
 
@@ -16,23 +16,27 @@ def _get_registry_path(custom_path: Optional[Path] = None) -> Path:
     return Path(custom_path) if custom_path else REGISTRY_PATH
 
 
+def _normalize_registry(data: Dict[str, Any]) -> Dict[str, Any]:
+    """Ensure multi-model dictionary structure, converting legacy flat JSON if needed."""
+    if "models" not in data:
+        return {"models": {"ticket_predictor": data}}
+    return data
+
+
 def load_registry(custom_path: Optional[Path] = None) -> Dict[str, Any]:
-    """Load model registry from JSON; initialize default structure if absent."""
+    """Load model registry from JSON; initialize default multi-model structure if absent."""
     reg_path = _get_registry_path(custom_path)
     if not reg_path.exists():
-        default_registry = {
-            "active_version": None,
-            "previous_active_version": None,
-            "versions": [],
-        }
+        default_registry = {"models": {}}
         save_registry(default_registry, custom_path=custom_path)
         return default_registry
 
     try:
         with open(reg_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+            return _normalize_registry(data)
     except json.JSONDecodeError:
-        return {"active_version": None, "previous_active_version": None, "versions": []}
+        return {"models": {}}
 
 
 def save_registry(data: Dict[str, Any], custom_path: Optional[Path] = None) -> None:
@@ -43,27 +47,31 @@ def save_registry(data: Dict[str, Any], custom_path: Optional[Path] = None) -> N
         json.dump(data, f, indent=2)
 
 
+def _get_model_catalog(reg: Dict[str, Any], model_name: str) -> Dict[str, Any]:
+    """Get or initialize catalog entry for a specific model."""
+    if "models" not in reg:
+        reg["models"] = {}
+    if model_name not in reg["models"]:
+        reg["models"][model_name] = {
+            "active_version": None,
+            "previous_active_version": None,
+            "versions": [],
+        }
+    return reg["models"][model_name]
+
+
 def register(
     version: str,
     metrics: Dict[str, Any],
     training_data_desc: str,
     status: str = "archived",
+    model_name: str = "ticket_predictor",
     custom_path: Optional[Path] = None,
 ) -> Dict[str, Any]:
-    """
-    Register a newly trained model version in the registry.
-
-    Args:
-        version: Version identifier (e.g. 'v1', 'v2').
-        metrics: Evaluation metrics dictionary.
-        training_data_desc: Description of datasets utilized for training.
-        status: Lifecycle status ('active', 'archived', 'rejected').
-        custom_path: Optional custom registry path.
-
-    Returns:
-        Registered version dictionary.
-    """
+    """Register a newly trained model version in the catalog."""
     reg = load_registry(custom_path)
+    catalog = _get_model_catalog(reg, model_name)
+
     entry = {
         "version": version,
         "created_at": datetime.now(timezone.utc).isoformat(),
@@ -72,99 +80,102 @@ def register(
         "status": status,
     }
 
-    # If updating an existing version entry
-    existing_idx = next(
-        (i for i, v in enumerate(reg["versions"]) if v["version"] == version), None
-    )
-    if existing_idx is not None:
-        reg["versions"][existing_idx] = entry
+    # Update or append version entry
+    idx = next((i for i, v in enumerate(catalog["versions"]) if v["version"] == version), None)
+    if idx is not None:
+        catalog["versions"][idx] = entry
     else:
-        reg["versions"].append(entry)
+        catalog["versions"].append(entry)
 
     if status == "active":
-        if reg["active_version"] and reg["active_version"] != version:
-            reg["previous_active_version"] = reg["active_version"]
-            # Set older active version to archived
-            for v in reg["versions"]:
-                if v["version"] == reg["previous_active_version"]:
+        if catalog["active_version"] and catalog["active_version"] != version:
+            catalog["previous_active_version"] = catalog["active_version"]
+            for v in catalog["versions"]:
+                if v["version"] == catalog["previous_active_version"]:
                     v["status"] = "archived"
-        reg["active_version"] = version
+        catalog["active_version"] = version
 
     save_registry(reg, custom_path=custom_path)
     return entry
 
 
-def get_active(custom_path: Optional[Path] = None) -> Optional[Dict[str, Any]]:
-    """Return the currently active model record, or None if no active model exists."""
+def get_active(
+    model_name: str = "ticket_predictor", custom_path: Optional[Path] = None
+) -> Optional[Dict[str, Any]]:
+    """Return the active model record for the specified model_name."""
     reg = load_registry(custom_path)
-    active_ver = reg.get("active_version")
+    catalog = _get_model_catalog(reg, model_name)
+    active_ver = catalog.get("active_version")
     if not active_ver:
         return None
-    for v in reg.get("versions", []):
+    for v in catalog.get("versions", []):
         if v["version"] == active_ver:
             return v
     return None
 
 
-def promote(version: str, custom_path: Optional[Path] = None) -> Dict[str, Any]:
-    """
-    Promote a model version to active status and archive the previously active version.
-
-    Args:
-        version: Target version to activate.
-
-    Returns:
-        Updated registry dictionary.
-    """
+def promote(
+    version: str,
+    model_name: str = "ticket_predictor",
+    custom_path: Optional[Path] = None,
+) -> Dict[str, Any]:
+    """Promote a model version to active status and archive the previous active."""
     reg = load_registry(custom_path)
-    target = next((v for v in reg["versions"] if v["version"] == version), None)
-    if not target:
-        raise ValueError(f"Version '{version}' not found in registry.")
+    catalog = _get_model_catalog(reg, model_name)
 
-    current_active = reg.get("active_version")
+    target = next((v for v in catalog["versions"] if v["version"] == version), None)
+    if not target:
+        raise ValueError(f"Version '{version}' not found for model '{model_name}'.")
+
+    current_active = catalog.get("active_version")
     if current_active != version:
-        reg["previous_active_version"] = current_active
-        for v in reg["versions"]:
+        catalog["previous_active_version"] = current_active
+        for v in catalog["versions"]:
             if v["version"] == current_active:
                 v["status"] = "archived"
 
     target["status"] = "active"
-    reg["active_version"] = version
+    catalog["active_version"] = version
 
     save_registry(reg, custom_path=custom_path)
-    return reg
+    return catalog
 
 
-def rollback(custom_path: Optional[Path] = None) -> Dict[str, Any]:
-    """
-    Rollback to the previous active model version.
-
-    Returns:
-        Updated registry dictionary with rollback applied.
-    """
+def rollback(
+    model_name: str = "ticket_predictor", custom_path: Optional[Path] = None
+) -> Dict[str, Any]:
+    """Roll back to the previous active model version."""
     reg = load_registry(custom_path)
-    prev_ver = reg.get("previous_active_version")
+    catalog = _get_model_catalog(reg, model_name)
+
+    prev_ver = catalog.get("previous_active_version")
     if not prev_ver:
-        raise RuntimeError("No previous active model version recorded to roll back to.")
+        raise RuntimeError(f"No previous active model version recorded for '{model_name}'.")
 
-    current_active = reg.get("active_version")
-
-    # Set current active to archived
-    for v in reg["versions"]:
+    current_active = catalog.get("active_version")
+    for v in catalog["versions"]:
         if v["version"] == current_active:
             v["status"] = "archived"
         if v["version"] == prev_ver:
             v["status"] = "active"
 
-    reg["active_version"] = prev_ver
-    # Clear or swap previous active
-    reg["previous_active_version"] = current_active
+    catalog["active_version"] = prev_ver
+    catalog["previous_active_version"] = current_active
 
     save_registry(reg, custom_path=custom_path)
-    return reg
+    return catalog
 
 
-def list_versions(custom_path: Optional[Path] = None) -> List[Dict[str, Any]]:
-    """Return list of all registered models."""
+def list_versions(
+    model_name: str = "ticket_predictor", custom_path: Optional[Path] = None
+) -> List[Dict[str, Any]]:
+    """Return list of all registered versions for a model."""
     reg = load_registry(custom_path)
-    return reg.get("versions", [])
+    catalog = _get_model_catalog(reg, model_name)
+    return catalog.get("versions", [])
+
+
+def list_models(custom_path: Optional[Path] = None) -> List[str]:
+    """Return all model names present in the registry."""
+    reg = load_registry(custom_path)
+    return list(reg.get("models", {}).keys())

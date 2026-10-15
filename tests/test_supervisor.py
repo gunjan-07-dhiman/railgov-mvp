@@ -16,7 +16,7 @@ import pytest
 from app.config import DATA_DIR
 from app.governance.audit import get_events, init_audit_db
 from app.governance.registry import get_active, register
-from app.predictor import load_model, train
+from app.modules.ticket_predictor import load_model, train
 from app.supervisor import run_supervisor_cycle
 from data.generate_data import generate_bookings
 

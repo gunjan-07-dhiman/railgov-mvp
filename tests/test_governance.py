@@ -22,7 +22,7 @@ from app.governance.drift import compute_categorical_psi, compute_ks_test, compu
 from app.governance.monitor import evaluate_performance
 from app.governance.registry import get_active, list_versions, promote, register, rollback
 from app.governance.retrain import retrain_if_needed
-from app.predictor import load_model, train
+from app.modules.ticket_predictor import load_model, train
 
 
 # ---------------------------------------------------------
